@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kökzhol Animated</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" data-i18n-content="meta.desc" content="Kökzhol / Көкжол: temperature-controlled logistics for lab diagnostics, medical devices and pharmaceuticals in Kazakhstan. Two hubs, 21 cities, four route rings. Cold chain, on schedule.">
+<meta name="theme-color" content="#0E6E7E">
+<link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: clinical light page; two ink bands (hero, roadmap) carry the 3D scenes. CI v1.0 tokens are fixed, so the page commits to one look. */
+:root{
+  --surface:#F5F8F9; --frost:#E3ECEF; --white:#FFFFFF; --hairline:#C9D6DC;
+  --ink:#0B2230; --ink-muted:#4A6070; --ink-2:#0D2838; --ink-line:#1E3A48; --ink-line-2:#2A4654;
+  --brand:#0E6E7E; --brand-dark:#0A5663; --ice:#7FD3DE; --gold:#C8963E; --alert:#B4442B;
+  --on-ink:#E8F1F3; --on-ink-muted:#A9BFC7;
+  --sans:"Onest",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --gutter-l:max(16px,env(safe-area-inset-left,0px)); --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --maxw:1180px; --r-sm:2px; --r-md:6px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.15}
+h1{font-size:clamp(34px,5.2vw,58px);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-0.015em}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+a{color:var(--brand)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.ink a:focus-visible,.ink button:focus-visible,.ink [tabindex]:focus-visible{outline-color:var(--ice)}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.ink .eyebrow{color:var(--ice)}
+.lede{font-size:17px;color:var(--ink-muted);max-width:62ch}
+.ink .lede{color:var(--on-ink-muted)}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--hairline);color:var(--ink-muted);background:var(--white);white-space:nowrap;vertical-align:middle}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+.badge.prep::before{background:var(--gold)}
+.badge.now::before{background:var(--ink)}
+.ink .badge{background:transparent;border-color:var(--ink-line-2);color:var(--on-ink-muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:var(--r-md);font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-dark)}
+.btn-secondary{background:transparent;color:var(--brand);border-color:var(--brand)}
+.ink .btn-secondary{color:var(--on-ink);border-color:#3C5B6A}
+.ink .btn-secondary:hover{border-color:var(--ice)}
+section{padding-block:72px}
+.ink{background:var(--ink);color:var(--on-ink)}
+.ink h2,.ink h3{color:#fff}
+.section-head{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;max-width:70ch}
+.icon{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;color:var(--brand)}
+
+/* signature band: 78 % teal, 22 % gold, ice line (CI 07) */
+.band{height:8px;background:linear-gradient(90deg,var(--brand) 0 78%,var(--gold) 78% 100%);position:relative}
+.band::after{content:"";position:absolute;left:0;top:3px;height:2px;width:78%;background:var(--ice)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ink);color:var(--on-ink);border-bottom:1px solid var(--ink-line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;min-height:60px}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{height:30px;width:auto;display:block}
+.nav-links{display:none;gap:18px;margin-left:8px}
+.nav-links a{color:var(--on-ink-muted);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:#fff}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.lang{display:flex;gap:2px;font-family:var(--mono);font-size:12px}
+.lang button{background:transparent;border:1px solid var(--ink-line-2);color:var(--on-ink-muted);padding:5px 8px;border-radius:var(--r-sm);font-family:inherit;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.nav .btn{padding:9px 14px;font-size:14px;white-space:nowrap}
+@media (min-width:1080px){.nav-links{display:flex}}
+
+/* hero */
+.hero{padding-block:48px 56px;position:relative;overflow:hidden;background:var(--ink)}
+.hero::before{content:"";position:absolute;inset:0;background:url("../assets/brand/pattern-on-ink.svg") center/600px auto repeat;opacity:.55;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px}
+.hero-claim{font-family:var(--mono);font-size:13px;color:var(--ice)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:8px;border-top:1px solid var(--ink-line)}
+.stat{display:flex;flex-direction:column;gap:2px;padding-top:10px}
+.stat b{font-family:var(--mono);font-size:26px;font-weight:500;color:#fff}
+.stat b.gold{color:var(--gold)}
+.stat span{font-size:13px;color:var(--on-ink-muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.launch{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;color:var(--on-ink-muted);border:1px solid var(--ink-line-2);border-radius:999px;padding:6px 12px 6px 8px;width:fit-content;max-width:100%}
+.launch b{color:var(--gold);font-weight:500}
+.launch::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none}
+.scene{position:relative;width:100%;max-width:100%;aspect-ratio:4/3;border:1px solid var(--ink-line);border-radius:var(--r-md);background:var(--ink-2);overflow:hidden}
+.scene canvas{display:block;width:100%;height:100%}
+.scene .fallback{position:absolute;inset:0;display:none;padding:12px}
+.scene .fallback svg{width:100%;height:100%}
+.scene[data-mode="svg"] .fallback{display:block}
+.scene[data-mode="svg"] canvas{display:none}
+.scene-note{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:11px;color:var(--on-ink-muted);pointer-events:none}
+.parts{position:absolute;right:12px;top:12px;display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11px;color:var(--on-ink-muted);pointer-events:none;margin:0;padding:0}
+.parts li{list-style:none;display:flex;gap:8px;align-items:center;transition:color .3s}
+.parts li::before{content:"";width:14px;height:1px;background:currentColor}
+.parts li.on{color:var(--ice)}
+@media (min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr;gap:48px}.hero{padding-block:72px}}
+
+/* generic grids */
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:720px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:860px){.grid-2{grid-template-columns:1fr 1fr}}
+.card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card p{color:var(--ink-muted);font-size:14px}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.reading{font-family:var(--mono);font-size:28px;font-weight:500;letter-spacing:-0.01em}
+
+/* problem */
+.problem .cols{display:grid;grid-template-columns:1fr;border:1px solid var(--hairline);border-radius:var(--r-md);overflow:hidden;background:var(--white)}
+.problem .col{padding:24px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--hairline);min-width:0}
+.problem .col:first-child{border-top:0}
+.problem .col p{color:var(--ink-muted);font-size:14px}
+.problem .col.now{background:var(--frost)}
+@media (min-width:800px){.problem .cols{grid-template-columns:repeat(3,1fr)}.problem .col{border-top:0;border-left:1px solid var(--hairline)}.problem .col:first-child{border-left:0}}
+
+/* network */
+.network .layout{display:grid;gap:24px;grid-template-columns:1fr}
+.network .scene{aspect-ratio:16/10}
+.ring-table{width:100%;border-collapse:collapse;font-size:14px}
+.ring-table th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);font-weight:500;padding:8px 10px;border-bottom:1px solid var(--hairline)}
+.ring-table td{padding:10px;border-bottom:1px solid var(--hairline);vertical-align:top}
+.ring-table td:first-child{white-space:nowrap}
+.sw{display:inline-block;width:22px;height:4px;border-radius:2px;vertical-align:middle;margin-right:8px}
+.table-scroll{overflow-x:auto}
+.note{margin-top:12px;font-size:14px;color:var(--ink-muted)}
+@media (min-width:980px){.network .layout{grid-template-columns:1.2fr 1fr;align-items:start}}
+
+/* climate */
+.climate .band-c{display:grid;grid-template-columns:1fr;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--hairline)}
+.climate .side{padding:28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.climate .cold{background:#E6F6F8;color:var(--ink)}
+.climate .hot{background:#FBF1E3;color:var(--ink)}
+.climate .side p{color:var(--ink-muted);font-size:14px;max-width:48ch}
+.climate .big{font-family:var(--mono);font-size:clamp(40px,6vw,64px);font-weight:500;letter-spacing:-0.02em;line-height:1}
+.climate .mid{padding:22px 28px;background:var(--white);display:flex;flex-direction:column;gap:6px;justify-content:center;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.climate .mid span:last-child{font-size:13px;color:var(--ink-muted)}
+@media (min-width:800px){.climate .band-c{grid-template-columns:1fr auto 1fr}.climate .mid{border:0;border-left:1px solid var(--hairline);border-right:1px solid var(--hairline);text-align:center}}
+
+/* cold chain */
+.class-card{border-top:4px solid var(--brand)}
+.class-card.ambient{border-top-color:var(--ink-muted)}
+.class-card.frozen{border-top-color:var(--ink)}
+.class-card .hint{font-family:var(--mono);font-size:12px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.class-card .hint .icon{width:18px;height:18px;color:var(--ink)}
+.proof{display:grid;gap:12px;grid-template-columns:1fr;margin-top:16px}
+@media (min-width:720px){.proof{grid-template-columns:1fr 1fr}}
+.proof .item{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md)}
+.proof .item p{font-size:14px;color:var(--ink-muted)}
+.proof .item strong{display:block;margin-bottom:2px;color:var(--ink)}
+
+/* platform */
+.platform .layout{display:grid;gap:24px;grid-template-columns:1fr}
+@media (min-width:980px){.platform .layout{grid-template-columns:1fr 1.25fr;align-items:start}}
+.feature-list{display:flex;flex-direction:column;border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--white);overflow:hidden}
+.feature-list .f{padding:16px 18px;border-top:1px solid var(--hairline);display:flex;gap:14px}
+.feature-list .f:first-child{border-top:0}
+.feature-list .f>div{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.feature-list .f p{font-size:14px;color:var(--ink-muted)}
+.feature-list .f .top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+.mock{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);overflow:hidden;font-size:13px;min-width:0}
+.mock .bar{background:var(--ink);color:var(--on-ink);display:flex;align-items:center;gap:10px;padding:10px 14px;font-family:var(--mono);font-size:12px}
+.mock .bar img{height:16px;width:auto}
+.mock .bar .right{margin-left:auto;color:var(--on-ink-muted)}
+.mock .body{padding:14px;display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:760px){.mock .body{grid-template-columns:1.3fr 1fr}}
+.mock h4{margin:0 0 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);font-weight:500}
+.mock table{width:100%;border-collapse:collapse;font-size:12.5px}
+.mock td,.mock th{padding:7px 6px;border-bottom:1px solid var(--frost);text-align:left;vertical-align:middle}
+.mock th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);font-weight:500}
+.mock .id{font-family:var(--mono);white-space:nowrap}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap}
+.pill.ok{background:var(--brand);color:#fff}
+.pill.wait{background:var(--frost);color:var(--ink)}
+.pill.load{background:var(--gold);color:var(--ink)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.slot{font-family:var(--mono);font-size:11px;padding:6px 4px;text-align:center;border:1px solid var(--frost);border-radius:var(--r-sm);background:var(--surface)}
+.slot.busy{background:var(--frost)}
+.slot.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
+.gate{border:1px solid var(--hairline);border-radius:var(--r-md);padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.gate .big{font-family:var(--mono);font-size:clamp(15px,1.9vw,21px);font-weight:500;color:var(--ink);overflow-wrap:anywhere}
+.gate .row{display:flex;justify-content:space-between;gap:8px;font-size:12.5px}
+.gate .row span:last-child{font-family:var(--mono);text-align:right}
+.check{color:var(--brand);font-weight:700}
+.mock .table-scroll{min-width:0;overflow-x:auto}
+
+/* serve */
+.serve .card h3{display:flex;align-items:center;gap:10px}
+.serve .card ul{margin:0;padding-left:18px;color:var(--ink-muted);font-size:14px;display:flex;flex-direction:column;gap:4px}
+
+/* behind */
+.behind .grid-2 .card{background:transparent;border-color:var(--ink-line-2)}
+.behind .card p{color:var(--on-ink-muted)}
+
+/* roadmap */
+.roadmap .layout{display:grid;gap:28px;grid-template-columns:1fr}
+@media (min-width:980px){.roadmap .layout{grid-template-columns:1fr 1.3fr;align-items:start}}
+.timeline{display:flex;flex-direction:column;border-left:1px solid var(--ink-line-2);margin-left:6px}
+.timeline .step{position:relative;padding:14px 0 18px 24px;cursor:pointer;border-radius:var(--r-sm)}
+.timeline .step::before{content:"";position:absolute;left:-6px;top:22px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid #3C5B6A;transition:background .3s,border-color .3s}
+.timeline .step.on::before{background:var(--ice);border-color:var(--ice)}
+.timeline .step .when{font-family:var(--mono);font-size:12px;color:var(--ice)}
+.timeline .step h3{font-size:17px;margin-top:2px}
+.timeline .step p{font-size:14px;color:var(--on-ink-muted);max-width:44ch}
+.timeline .step.on h3{color:#fff}
+.roadmap .scene{aspect-ratio:16/10;border-color:var(--ink-line-2)}
+
+/* quality */
+.quality ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;grid-template-columns:1fr}
+@media (min-width:720px){.quality ul{grid-template-columns:1fr 1fr}}
+.quality li{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.quality li p{font-size:14px;color:var(--ink-muted)}
+.quality li .top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+
+/* faq */
+.faq details{border-top:1px solid var(--hairline);padding:14px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--hairline)}
+.faq summary{cursor:pointer;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--brand)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin-top:8px;color:var(--ink-muted);max-width:68ch}
+
+/* contact */
+.contact .layout{display:grid;gap:24px;grid-template-columns:1fr}
+@media (min-width:900px){.contact .layout{grid-template-columns:1.2fr 1fr;align-items:start}}
+form{display:grid;gap:14px;grid-template-columns:1fr;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);padding:22px}
+@media (min-width:640px){form{grid-template-columns:1fr 1fr}form .full{grid-column:1/-1}}
+label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;min-width:0}
+input,select{font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--hairline);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);width:100%}
+input::placeholder{color:#7D909B}
+.route{grid-column:1/-1;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--ink-muted);padding:10px 12px;background:var(--frost);border-radius:var(--r-sm)}
+.route b{color:var(--ink);font-family:var(--mono);font-weight:500}
+.route .hub{color:var(--ink);font-weight:700}
+.sent{grid-column:1/-1;display:none;padding:14px;border:1px solid var(--brand);border-radius:var(--r-md);color:var(--ink);font-size:14px}
+.sent.show{display:block}
+.hubs{display:flex;flex-direction:column;gap:12px}
+.hub-card{border:1px solid var(--hairline);border-left:4px solid var(--gold);background:var(--white);border-radius:var(--r-md);padding:18px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.hub-card .muted{color:var(--ink-muted);font-size:13px}
+.msg{display:flex;flex-wrap:wrap;gap:10px}
+.msg a{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--hairline);border-radius:var(--r-md);text-decoration:none;color:var(--ink);font-size:14px;background:var(--white)}
+.msg a:hover{border-color:var(--brand)}
+.msg svg{width:16px;height:16px}
+.kz-note{font-family:var(--mono);font-size:11px;color:var(--ink-muted)}
+
+/* footer */
+footer{background:var(--ink);color:var(--on-ink-muted);padding-block:40px;font-size:13px}
+footer .brandline{display:flex;align-items:center;gap:14px}
+footer .brandline img{height:26px;width:auto}
+footer .cities{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:12px;color:var(--on-ink-muted);margin:14px 0 24px}
+footer .cities span{white-space:nowrap}
+footer .cities .hub{color:var(--gold)}
+footer .bottom{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center;border-top:1px solid var(--ink-line);padding-top:18px}
+footer .signoff{font-size:20px;font-weight:700;color:#fff}
+
+/* ---- variant B motion: CSS + SVG only, one hero motion per section, 2–3 s, then rest ---- */
+.scene-b{aspect-ratio:16/10;background:var(--ink-2)}
+.scene-b svg{display:block;width:100%;height:100%}
+.hero .scene-b{aspect-ratio:4/3}
+.draw{stroke-dasharray:1;stroke-dashoffset:0}
+.anim .draw{stroke-dashoffset:1}
+.anim .go .draw{animation:draw 2.4s cubic-bezier(.4,0,.2,1) forwards}
+.anim .go .draw.d1{animation-delay:.3s}.anim .go .draw.d2{animation-delay:.6s}.anim .go .draw.d3{animation-delay:.9s}.anim .go .draw.d4{animation-delay:1.2s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fade{opacity:1}.anim .fade{opacity:0}.anim .go .fade{animation:fadein .6s ease forwards}
+.anim .go .fade.d1{animation-delay:1.2s}.anim .go .fade.d2{animation-delay:1.8s}.anim .go .fade.d3{animation-delay:2.4s}
+@keyframes fadein{to{opacity:1}}
+.truck-dot{opacity:1}.anim .truck-dot{opacity:0}.anim .go .truck-dot{animation:fadein .3s .4s forwards}
+/* roadmap stages: rings beyond the backbone draw in from stage 1, neighbours light from stage 2, halo from stage 3 */
+.rm .st1{transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)}
+.rm[data-stage="0"] .st1{stroke-dashoffset:1}
+.rm .nb{transition:fill 1.2s ease,opacity 1.2s ease}
+.rm[data-stage="0"] .nbdot,.rm[data-stage="1"] .nbdot{opacity:0}
+.rm .halo{transition:opacity 1.2s ease}
+.rm:not([data-stage="3"]) .halo{opacity:0}
+/* split-flap departure board */
+.board{margin-top:16px;background:var(--ink);color:var(--on-ink);border-radius:var(--r-md);padding:14px 16px;font-family:var(--mono);font-size:12px;overflow-x:auto}
+.board .bh{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--on-ink-muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.board table{border-collapse:separate;border-spacing:0 6px;width:100%}
+.board td{padding:0 6px 0 0;white-space:nowrap;vertical-align:middle}
+.board td:first-child{color:var(--ice)}
+.flap{display:inline-flex;gap:2px}
+.flap span{display:inline-block;min-width:1.1ch;text-align:center;background:#13303F;border-radius:2px;padding:2px 1px;line-height:1.3;transform-origin:50% 50%}
+.anim .go .flap span{animation:flip .45s ease-in-out both}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(-90deg)}100%{transform:rotateX(0)}}
+.board .gold{color:var(--gold)}
+.tick{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kökzhol home">
+      <img id="logo-img" src="../assets/brand/horizontal-latin-reverse.svg" alt="kökzhol" width="176" height="30">
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#network" data-i18n="nav.network">Network</a><a href="#coldchain" data-i18n="nav.cold">Cold chain</a><a href="#platform" data-i18n="nav.platform">Platform</a><a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a><a href="#quality" data-i18n="nav.quality">Quality</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn btn-primary" href="#contact" data-i18n="nav.cta">Request a lane</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1 HERO -->
+<section class="hero ink">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow" data-i18n="hero.eyebrow">Temperature-controlled logistics · Kazakhstan</span>
+      <h1 data-i18n="hero.h1">Cold chain, on schedule.</h1>
+      <p class="hero-claim" data-i18n="hero.claim">Холодовая цепь точно по графику. · Суық тізбек — кестемен.</p>
+      <p class="lede" data-i18n="hero.lede">97 degrees lie between a January morning and a July afternoon on our routes. Lab diagnostics, medical devices and pharmaceuticals move between two hubs and 21 cities on fixed route rings, with a temperature record for every box.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#contact" data-i18n="hero.cta1">Request a lane / Become a partner</a>
+        <a class="btn btn-secondary" href="#contact" data-i18n="hero.cta2">Talk to the Astana or Almaty hub</a>
+      </div>
+      <div class="launch"><span data-i18n="hero.launch">Backbone start</span><b>15.12.2026</b><span id="countdown" class="mono"></span></div>
+      <div class="hero-stats">
+        <div class="stat"><b class="gold tick" data-count="2">2</b><span data-i18n="stat.hubs">hubs: Astana, Almaty</span></div>
+        <div class="stat"><b class="tick" data-count="21">21</b><span data-i18n="stat.cities">cities served</span></div>
+        <div class="stat"><b class="tick" data-count="4">4</b><span data-i18n="stat.rings">route rings + weekly backbone</span></div>
+        <div class="stat"><b>−45 / +52&nbsp;°C</b><span data-i18n="stat.climate">winter / summer on the road</span></div>
+      </div>
+    </div>
+    <div class="scene scene-b" id="scene-curve" aria-label="Temperature curve of one trip from Astana to Almaty, drawn as the page loads">
+      <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><style>.ax{font:11px "IBM Plex Mono",monospace;fill:#A9BFC7}.rd{font:500 22px "IBM Plex Mono",monospace;fill:#7FD3DE}.hb{font:11px "IBM Plex Mono",monospace;fill:#C8963E}</style></defs>
+        <rect x="56" y="126" width="552" height="128" fill="#13303F"/>
+        <g stroke="#1E3A48" stroke-width="1"><line x1="56" y1="40" x2="608" y2="40"/><line x1="56" y1="126" x2="608" y2="126"/><line x1="56" y1="190" x2="608" y2="190"/><line x1="56" y1="254" x2="608" y2="254"/><line x1="56" y1="340" x2="608" y2="340"/></g>
+        <text x="8" y="44" class="ax">+12</text><text x="8" y="130" class="ax">+8</text><text x="8" y="194" class="ax">+5</text><text x="8" y="258" class="ax">+2</text><text x="8" y="344" class="ax">−2 °C</text>
+        <text x="56" y="366" class="hb">AST 06:55</text><text x="300" y="366" class="ax" text-anchor="middle">KAR 12:10</text><text x="608" y="366" class="hb" text-anchor="end">ALA 18:40</text>
+        <circle cx="56" cy="340" r="4" fill="#C8963E"/><circle cx="608" cy="340" r="4" fill="#C8963E"/>
+        <path class="draw" pathLength="1" d="M56 182 C110 176 150 198 200 204 S290 226 330 216 S420 198 470 206 S560 226 608 220" fill="none" stroke="#7FD3DE" stroke-width="3" stroke-linecap="round"/>
+        <circle class="fade d2" cx="608" cy="220" r="5" fill="#7FD3DE"/>
+        <text x="60" y="88" class="rd"><tspan>KZL-T-004218 · </tspan><tspan>+</tspan><tspan id="hero-reading" class="tick">4.6</tspan><tspan> °C</tspan></text>
+        <text x="60" y="108" class="ax fade d1">allowed band +2…+8 °C · 0 excursions · 11 h 45 min</text>
+      </svg>
+      <div class="scene-note" data-i18n="hero.note">one trip · one curve · Astana → Almaty</div>
+    </div>
+  </div>
+</section>
+<div class="band" aria-hidden="true"></div>
+
+<!-- 2 PROBLEM -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="problem.eyebrow">The problem</span>
+      <h2 data-i18n="problem.h2">Express is the exception. Today it is the plan.</h2>
+      <p class="lede" data-i18n="problem.lede">In medical supply chains across Kazakhstan, a large share of the transport budget goes on express shipments that carry only a small share of the weight. Each one is booked by phone, packed by hand and tracked by hope. Kökzhol makes the scheduled cold chain the normal case.</p>
+    </div>
+    <div class="cols">
+      <div class="col"><span class="eyebrow" data-i18n="problem.c1e">Today</span><h3 data-i18n="problem.c1h">Ad-hoc express</h3><p data-i18n="problem.c1p">Reagents leave when someone finds a courier. Temperature proof is a thermometer photo, if any. Two hubs often ship to the same city on the same day, separately.</p></div>
+      <div class="col now"><span class="eyebrow" data-i18n="problem.c2e">With Kökzhol</span><h3 data-i18n="problem.c2h">A fixed day, one truck, one record</h3><p data-i18n="problem.c2p">Every city has a delivery day on its ring. Loads from both hubs are consolidated. One logger per box writes the record; the platform shows it before the box is opened.</p></div>
+      <div class="col"><span class="eyebrow" data-i18n="problem.c3e">What changes for you</span><h3 data-i18n="problem.c3h">Express only when it is really needed</h3><p data-i18n="problem.c3p">Routine replenishment moves on the timetable at a scheduled rate. Express stays available for the genuinely urgent case, with a clear reason attached.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 NETWORK -->
+<section class="network" id="network">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="net.eyebrow">Network</span>
+      <h2 data-i18n="net.h2">Two hubs. Four rings. One weekly backbone.</h2>
+      <p class="lede" data-i18n="net.lede">Astana and Almaty are the hubs. A weekly backbone of about 1,200 km links them. Four route rings leave the hubs on fixed loops and come back, so every city sees the same truck on the same day. Aktau, the furthest point, is 2,670 km from its hub.</p>
+    </div>
+    <div class="layout">
+      <div>
+        <div class="scene scene-b" id="scene-map" aria-label="Schematic map of Kazakhstan with the route rings drawing in and a truck dot travelling the backbone">
+          <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" id="svg-map-1" aria-hidden="true"></svg>
+          <div class="scene-note" data-i18n="net.note">hubs in gold · rings draw as the section enters view</div>
+        </div>
+        <div class="board" id="board" aria-label="Next departures, demo">
+          <div class="bh"><span data-i18n="board.title">Next departures · demo</span><span class="badge prep" data-i18n="badge.launch10">from launch</span></div>
+          <table>
+            <tbody>
+              <tr><td data-i18n="ring.main2">Backbone</td><td><span class="flap" data-text="AST → ALA"></span></td><td><span class="flap" data-text="MON"></span></td><td><span class="flap" data-text="07:00"></span></td><td class="gold"><span class="flap" data-text="+2…+8 · +15…+25 · −20"></span></td></tr>
+              <tr><td data-i18n="ring.north2">North</td><td><span class="flap" data-text="AST"></span></td><td><span class="flap" data-text="TUE"></span></td><td><span class="flap" data-text="06:30"></span></td><td><span class="flap" data-text="+2…+8 · +15…+25"></span></td></tr>
+              <tr><td data-i18n="ring.east2">East</td><td><span class="flap" data-text="AST"></span></td><td><span class="flap" data-text="WED"></span></td><td><span class="flap" data-text="06:30"></span></td><td><span class="flap" data-text="+2…+8 · +15…+25"></span></td></tr>
+              <tr><td data-i18n="ring.south2">South</td><td><span class="flap" data-text="ALA"></span></td><td><span class="flap" data-text="TUE"></span></td><td><span class="flap" data-text="07:00"></span></td><td><span class="flap" data-text="+2…+8 · +15…+25 · −20"></span></td></tr>
+              <tr><td data-i18n="ring.west2">West</td><td><span class="flap" data-text="AST"></span></td><td><span class="flap" data-text="MON"></span></td><td><span class="flap" data-text="05:30"></span></td><td><span class="flap" data-text="+15…+25"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="table-scroll">
+        <table class="ring-table">
+          <thead><tr><th data-i18n="net.th1">Ring</th><th data-i18n="net.th2">From</th><th data-i18n="net.th3">Cities</th><th data-i18n="net.th4">Loop</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sw" style="background:#0E6E7E"></span><span data-i18n="ring.main">Backbone</span></td><td data-i18n="ring.main.from">Astana ⇄ Almaty</td><td data-i18n="ring.main.c">Karaganda</td><td class="mono" data-i18n="ring.main.len">≈1,200 km · weekly</td></tr>
+            <tr><td><span class="sw" style="background:#7FD3DE"></span><span data-i18n="ring.north">North</span></td><td data-i18n="city.astana">Astana</td><td data-i18n="ring.north.c">Kokshetau, Petropavl, Kostanay</td><td class="mono" data-i18n="ring.north.len">1,580 km</td></tr>
+            <tr><td><span class="sw" style="background:#4A6070"></span><span data-i18n="ring.east">East</span></td><td data-i18n="city.astana2">Astana</td><td data-i18n="ring.east.c">Pavlodar, Aksu, Semey, Oskemen</td><td class="mono" data-i18n="ring.east.len">1,950 km</td></tr>
+            <tr><td><span class="sw" style="background:#C8963E"></span><span data-i18n="ring.south">South</span></td><td data-i18n="city.almaty">Almaty</td><td data-i18n="ring.south.c">Taldykorgan, Taraz, Shymkent, Turkistan, Kyzylorda, Saryagash</td><td class="mono" data-i18n="ring.south.len">3,250 km</td></tr>
+            <tr><td><span class="sw" style="background:#0B2230"></span><span data-i18n="ring.west">West</span></td><td data-i18n="city.astana3">Astana</td><td data-i18n="ring.west.c">Aktobe, Khromtau, Uralsk, Atyrau, Aktau</td><td class="mono" data-i18n="ring.west.len">6,482 km · 11.4 driving days</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="note"><span data-i18n="net.tt">Fixed timetable and published departure days</span> <span class="badge prep" data-i18n="badge.launch">from launch</span></p>
+        <p class="note" data-i18n="net.partners">Partners and carriers: the backbone and the West ring have backhaul capacity in the return direction. Talk to us about regular lanes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 CLIMATE -->
+<section class="climate" id="climate">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="cl.eyebrow">Climate</span>
+      <h2 data-i18n="cl.h2">At −45&nbsp;°C the danger is frost, not heat.</h2>
+      <p class="lede" data-i18n="cl.lede">Kazakhstan has a dry continental climate with a 97-degree span. A reagent that freezes is a reagent that is lost, so in winter the ambient class (+15…+25&nbsp;°C) travels heated, and +2…+8&nbsp;°C goods are protected from frost first and from warmth second.</p>
+    </div>
+    <div class="band-c">
+      <div class="side cold"><span class="eyebrow" data-i18n="cl.jan">January</span><div class="big">−45&nbsp;°C</div><p data-i18n="cl.janp">Insulated bodies rated −70…+75&nbsp;°C, passive thermo containers, winter mode on every ambient label: «heated». Blizzard buffers are built into the ring timetable.</p></div>
+      <div class="mid"><span class="eyebrow" data-i18n="cl.span">Span</span><div class="reading"><span class="tick" data-count="97">97</span>&nbsp;°C</div><span data-i18n="cl.same">same box, same reagent</span></div>
+      <div class="side hot"><span class="eyebrow" data-i18n="cl.jul">July</span><div class="big">+52&nbsp;°C</div><p data-i18n="cl.julp">White bodies reflect the sun. Cold packs are conditioned per class, and loggers show the actual curve, not an assumption.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 COLD CHAIN -->
+<section class="coldchain" id="coldchain" style="background:var(--frost)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="cc.eyebrow">Cold chain</span>
+      <h2 data-i18n="cc.h2">Three classes. One logger per box. Labels from the system.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card class-card"><div class="top"><span class="eyebrow" data-i18n="cc.chilled">Chilled</span><span class="badge prep" data-i18n="badge.launch2">from launch</span></div><div class="reading">+2…+8&nbsp;°C</div><p data-i18n="cc.chilledp">Reagents, calibrators, controls. Thermobox validated for two days; chilled intermediate storage at cross-docking.</p><div class="hint"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></svg><span data-i18n="cc.chilledh">Do not freeze</span></div></div>
+      <div class="card class-card ambient"><div class="top"><span class="eyebrow" data-i18n="cc.ambient">Ambient</span><span class="badge prep" data-i18n="badge.launch3">from launch</span></div><div class="reading">+15…+25&nbsp;°C</div><p data-i18n="cc.ambientp">Plastic consumables, devices, most pharmaceuticals. Frost-sensitive in winter, so the label switches to «heated» from the first frost.</p><div class="hint"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4.5a2 2 0 0 1 4 0v9.3a4 4 0 1 1-4 0Z"/><path d="M12 10v6.5"/><path d="M18 6c1 1 1 2 0 3s-1 2 0 3M5.5 6c1 1 1 2 0 3s-1 2 0 3"/></svg><span data-i18n="cc.ambienth">Heated (winter mode)</span></div></div>
+      <div class="card class-card frozen"><div class="top"><span class="eyebrow" data-i18n="cc.frozen">Frozen</span><span class="badge prep" data-i18n="badge.launch4">from launch</span></div><div class="reading">−20&nbsp;°C</div><p data-i18n="cc.frozenp">Dry ice (UN 1845) with ADR-trained drivers. Scheduled regularly, not as an exception.</p><div class="hint"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4Z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></svg><span data-i18n="cc.frozenh">Frozen goods</span></div></div>
+    </div>
+    <div class="proof">
+      <div class="item"><span class="badge prep" data-i18n="badge.launch5">from launch</span><p><strong data-i18n="cc.p1h">One data logger per box.</strong><span data-i18n="cc.p1p">Every shipment gets its own temperature curve, from packing time to hand-over, downloadable per shipment ID.</span></p></div>
+      <div class="item"><span class="badge now" data-i18n="badge.now">now</span><p><strong data-i18n="cc.p2h">Labels printed by the system, never handwritten.</strong><span data-i18n="cc.p2p">Shipment ID, logger ID and packing time on every box, with the class range in large type and a Code 128 barcode.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PLATFORM -->
+<section class="platform" id="platform">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="pf.eyebrow">Platform</span>
+      <h2 data-i18n="pf.h2">Book a slot, watch the truck, download the curve.</h2>
+      <p class="lede" data-i18n="pf.lede">The website is the front door of the platform. Customers book online and see an indicative price before they confirm. Each hub runs goods receipt from the same system, so the record starts at the gate.</p>
+    </div>
+    <div class="layout">
+      <div class="feature-list">
+        <div class="f"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><div><div class="top"><h3 data-i18n="pf.f1h">Online slot booking with an indicative price</h3><span class="badge prep" data-i18n="badge.launch6">from launch</span></div><p data-i18n="pf.f1p">Pick the ring, the delivery day and the class. The price is shown before confirmation.</p></div></div>
+        <div class="f"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-6-5.4-6-10.5a6 6 0 0 1 12 0c0 5.1-6 10.5-6 10.5Z"/><circle cx="12" cy="10" r="2.2"/></svg><div><div class="top"><h3 data-i18n="pf.f2h">Live tracking</h3><span class="badge prep" data-i18n="badge.launch7">from launch</span></div><p data-i18n="pf.f2p">Vehicle position and box status by shipment ID. Data hosted in Kazakhstan.</p></div></div>
+        <div class="f"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 19.5h17M4 15l4.5-4.5 3.5 3 7.5-7.5"/><path d="M15 6h4.5v4.5"/></svg><div><div class="top"><h3 data-i18n="pf.f3h">Temperature report per shipment</h3><span class="badge prep" data-i18n="badge.launch8">from launch</span></div><p data-i18n="pf.f3p">The logger curve with the allowed band shaded, as a PDF with the delivery note.</p></div></div>
+        <div class="f"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2.5M19.5 14v2.5M14 17.5V20h2.5M18 20h2"/></svg><div><div class="top"><h3 data-i18n="pf.f4h">Hub goods receipt</h3><span class="badge prep" data-i18n="badge.launch9">from launch</span></div><p data-i18n="pf.f4p">Inbound list per hub, dock time slots, gate check with the actual temperature, logger hand-over and SSCC match against the advice.</p></div></div>
+      </div>
+      <div class="mock" aria-label="Demo of the hub goods receipt screen">
+        <div class="bar"><img src="../assets/brand/mark-reverse.svg" alt="" width="13" height="16"><span data-i18n="mock.title">Goods receipt · Hub AST</span><span class="right" data-i18n="mock.demo">demo · from launch</span></div>
+        <div class="body">
+          <div class="table-scroll">
+            <h4 data-i18n="mock.inbound">Inbound today · Astana</h4>
+            <table>
+              <thead><tr><th data-i18n="mock.th1">Shipment</th><th data-i18n="mock.th2">From</th><th data-i18n="mock.th3">Class</th><th data-i18n="mock.th4">Dock</th><th data-i18n="mock.th5">Status</th></tr></thead>
+              <tbody>
+                <tr><td class="id">KZ-2026-1215-00731</td><td data-i18n="city.almaty2">Almaty</td><td class="id">+2…+8</td><td class="id">06:30</td><td><span class="pill ok" data-i18n="mock.s1">Checked</span></td></tr>
+                <tr><td class="id">KZ-2026-1215-00734</td><td data-i18n="city.almaty3">Almaty</td><td class="id">+15…+25</td><td class="id">06:30</td><td><span class="pill ok" data-i18n="mock.s2">Checked</span></td></tr>
+                <tr><td class="id">KZ-2026-1215-00738</td><td data-i18n="city.karaganda">Karaganda</td><td class="id">−20</td><td class="id">07:00</td><td><span class="pill load" data-i18n="mock.s3">Unloading</span></td></tr>
+                <tr><td class="id">KZ-2026-1215-00741</td><td data-i18n="city.kostanay">Kostanay</td><td class="id">+2…+8</td><td class="id">08:15</td><td><span class="pill wait" data-i18n="mock.s4">Expected</span></td></tr>
+              </tbody>
+            </table>
+            <h4 style="margin-top:12px" data-i18n="mock.slots">Dock time slots · ramp 2</h4>
+            <div class="slots"><span class="slot busy">06:00</span><span class="slot sel">06:30</span><span class="slot busy">07:00</span><span class="slot">07:30</span><span class="slot">08:00</span><span class="slot busy">08:15</span><span class="slot">08:45</span><span class="slot">09:15</span></div>
+          </div>
+          <div class="gate">
+            <h4 style="margin:0" data-i18n="mock.gate">Gate check · box 3 of 12</h4>
+            <div class="big">KZL-T-004218 · +4.6&nbsp;°C · 06:55</div>
+            <div class="row"><span data-i18n="mock.r1">Allowed band</span><span>+2…+8&nbsp;°C</span></div>
+            <div class="row"><span data-i18n="mock.r2">Logger hand-over</span><span><span class="check">✓</span> <span data-i18n="mock.r2v">driver → hub</span></span></div>
+            <div class="row"><span data-i18n="mock.r3">SSCC match</span><span><span class="check">✓</span> 0046 1234 5678 9012 3</span></div>
+            <div class="row"><span data-i18n="mock.r4">Dwell at ramp</span><span>00:24</span></div>
+            <div class="row"><span data-i18n="mock.r5">Excursions</span><span>0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 WHO WE SERVE -->
+<section class="serve" id="serve" style="background:var(--frost)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="sv.eyebrow">Who we serve</span>
+      <h2 data-i18n="sv.h2">Neutral, and open to the whole market.</h2>
+      <p class="lede" data-i18n="sv.lede">Kökzhol is an independent carrier. Laboratories, pharmacies, clinics, manufacturers and distributors share the same rings and the same temperature record.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6M10 3.5V17a2 2 0 0 0 4 0V3.5M10 11h4"/></svg><span data-i18n="sv.1h">Laboratories</span></h3><ul data-i18n="sv.1l"><li>Temperature proof per box</li><li>A fixed delivery day per city</li><li>Winter handling of ambient reagents</li><li>UN 3373 specimens on the return leg</li></ul></div>
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="sv.2h">Pharmacies and clinics</span></h3><ul data-i18n="sv.2l"><li>Indicative price before booking</li><li>Online slot booking</li><li>Delivery day known in advance</li></ul></div>
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><span data-i18n="sv.3h">Manufacturers and distributors</span></h3><ul data-i18n="sv.3l"><li>GDP framework (EAEU and KZ)</li><li>Coverage of 21 cities from two hubs</li><li>Data and reports per shipment</li><li>Neutral towards your customers</li></ul></div>
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h11v10h-11zM13.5 10h4l3 3.5v3h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span data-i18n="sv.4h">Partners and carriers</span></h3><ul data-i18n="sv.4l"><li>Backhaul capacity on the backbone and West ring</li><li>Regional expansion from 2028</li><li>Regular lanes, not spot loads</li></ul></div>
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4.5a2 2 0 0 1 4 0v9.3a4 4 0 1 1-4 0Z"/><path d="M12 10v6.5"/><path d="M18 6c1 1 1 2 0 3s-1 2 0 3M5.5 6c1 1 1 2 0 3s-1 2 0 3"/></svg><span data-i18n="sv.5h">Medical device suppliers</span></h3><ul data-i18n="sv.5l"><li>Ambient class with heated winter mode</li><li>Consolidated, scheduled replenishment</li><li>Hub storage with 24/7 monitoring (in preparation)</li></ul></div>
+      <div class="card"><h3><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4Z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/></svg><span data-i18n="sv.6h">Hospitals and diagnostic centres</span></h3><ul data-i18n="sv.6l"><li>Frozen class on a regular schedule</li><li>Dry ice handled by ADR-trained drivers</li><li>Gate check with actual temperature on arrival</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7b BEHIND KÖKZHOL -->
+<section class="behind ink">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="bh.eyebrow">Behind Kökzhol</span>
+      <h2 data-i18n="bh.h2">German-Kazakh know-how, built for the steppe.</h2>
+      <p class="lede" data-i18n="bh.lede">The network was planned with German logistics professionals in a 150-question feasibility study, and it is being set up to European good distribution practice from day one.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card"><h3 data-i18n="bh.1h">EU GDP rules and standards</h3><p><span data-i18n="bh.1p">Processes, documentation and training follow EU Good Distribution Practice, mapped to EAEU and Kazakh requirements.</span> <span class="badge prep" data-i18n="badge.prep">in preparation</span></p></div>
+      <div class="card"><h3 data-i18n="bh.2h">Experience from German professionals</h3><p data-i18n="bh.2p">Route design, cold-chain engineering and the hub processes draw on hands-on experience from German pharma and lab logistics.</p></div>
+      <div class="card"><h3 data-i18n="bh.3h">Consulting and strategic investment from German partners</h3><p data-i18n="bh.3p">German partners support Kökzhol with consulting and strategic investment, so the network is funded to run on a timetable, not on spot demand.</p></div>
+      <div class="card"><h3 data-i18n="bh.4h">Parallel experience across temperature-led logistics</h3><p data-i18n="bh.4p">The team's background covers food, dangerous goods, the beauty sector and flowers, where temperature, timing and documentation decide whether the goods arrive usable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 ROADMAP -->
+<section class="roadmap ink" id="roadmap">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="rm.eyebrow">Roadmap</span>
+      <h2 data-i18n="rm.h2">From the backbone to the region.</h2>
+    </div>
+    <div class="layout">
+      <div class="timeline" id="timeline">
+        <div class="step on" data-stage="0" tabindex="0"><span class="when">15.12.2026</span><h3 data-i18n="rm.1h">Backbone start</h3><p data-i18n="rm.1p">First weekly loop Astana ⇄ Almaty via Karaganda, with the three classes and one logger per box.</p></div>
+        <div class="step" data-stage="1" tabindex="0"><span class="when">2027</span><h3 data-i18n="rm.2h">All of Kazakhstan</h3><p data-i18n="rm.2p">North, East, South and West rings in operation; 21 cities served from the two hubs.</p></div>
+        <div class="step" data-stage="2" tabindex="0"><span class="when">2028</span><h3 data-i18n="rm.3h">Uzbekistan and Kyrgyzstan</h3><p data-i18n="rm.3p">Southern extension to Tashkent and Bishkek on the South ring, with the same classes and the same records.</p></div>
+        <div class="step" data-stage="3" tabindex="0"><span class="when" data-i18n="rm.4w">Later</span><h3 data-i18n="rm.4h">The wider region</h3><p data-i18n="rm.4p">Lanes into neighbouring markets as partner demand and GDP certification allow.</p></div>
+      </div>
+      <div class="scene scene-b" id="scene-road" aria-label="Map that expands with each roadmap stage">
+        <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" id="svg-map-2" class="rm" data-stage="0" aria-hidden="true"></svg>
+        <div class="scene-note" id="road-note">stage · backbone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 QUALITY -->
+<section class="quality" id="quality">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="q.eyebrow">Quality</span>
+      <h2 data-i18n="q.h2">Built to the rules that labs are audited against.</h2>
+      <p class="lede" data-i18n="q.lede">Nothing below is claimed as certified yet. Each item is in preparation and will be marked as live on this page once the audit or calibration is done.</p>
+    </div>
+    <ul>
+      <li><div class="top"><strong data-i18n="q.1h">EAEU GDP (EEC Decision 80/2016)</strong><span class="badge prep" data-i18n="badge.prep2">in preparation</span></div><p data-i18n="q.1p">Good distribution practice of the Eurasian Economic Union, applied to both hubs and all rings.</p></li>
+      <li><div class="top"><strong data-i18n="q.2h">Kazakh Ministry of Health GDP rules</strong><span class="badge prep" data-i18n="badge.prep3">in preparation</span></div><p data-i18n="q.2p">National distribution rules for medicines and medical devices.</p></li>
+      <li><div class="top"><strong data-i18n="q.3h">EN 12830 temperature recorders</strong><span class="badge prep" data-i18n="badge.prep4">in preparation</span></div><p data-i18n="q.3p">A legally recognised recorder in every truck, plus sensors per chamber.</p></li>
+      <li><div class="top"><strong data-i18n="q.4h">WHO TRS 961 temperature mapping</strong><span class="badge prep" data-i18n="badge.prep5">in preparation</span></div><p data-i18n="q.4p">Summer and winter mapping of hubs and vehicles; sensors calibrated yearly to ISO 17025.</p></li>
+      <li><div class="top"><strong data-i18n="q.5h">EU GDP as the working standard</strong><span class="badge prep" data-i18n="badge.prep6">in preparation</span></div><p data-i18n="q.5p">Procedures and training follow EU GDP, so the same evidence pack serves EAEU, KZ and European partners.</p></li>
+      <li><div class="top"><strong data-i18n="q.6h">Dangerous goods</strong><span class="badge prep" data-i18n="badge.prep7">in preparation</span></div><p data-i18n="q.6p">Dry ice UN 1845 and diagnostic specimens UN 3373 handled by ADR-trained drivers.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" style="background:var(--frost)">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">FAQ</span><h2 data-i18n="faq.h2">Questions labs and pharmacies ask first.</h2></div>
+    <details><summary data-i18n="faq.1q">How does Kökzhol prove the temperature of each box?</summary><p data-i18n="faq.1a">Every thermobox carries its own data logger from packing to hand-over. The curve is read at the hub gate and at delivery, compared with the allowed band for the class, and attached to the delivery note as a temperature report. Customers download it by shipment ID from the platform. This applies from launch.</p></details>
+    <details><summary data-i18n="faq.2q">Why are +15…+25&nbsp;°C goods heated in winter?</summary><p data-i18n="faq.2a">At −45&nbsp;°C the risk for ambient goods is freezing, not warming. Plastic consumables and many reagents are destroyed by a single frost cycle. In winter mode the ambient class travels in insulated bodies with conditioned packs, and every ambient label switches to «heated» so nobody mistakes the box for a chilled one.</p></details>
+    <details><summary data-i18n="faq.3q">Which cities does Kökzhol deliver to, and how often?</summary><p data-i18n="faq.3a">Twenty-one cities from the hubs in Astana and Almaty, on four route rings plus a weekly backbone between the two hubs. Each city has a fixed delivery day on its ring. The West ring, the longest at 6,482 km, reaches Aktau at 2,670 km from the hub. The timetable is published at launch on 15 December 2026.</p></details>
+    <details><summary data-i18n="faq.4q">Can a lab book a shipment online and see the price first?</summary><p data-i18n="faq.4a">Yes, from launch. The customer portal shows the ring, the next delivery day and an indicative price for the chosen temperature class and volume before the slot is confirmed. Bookings route to the Astana or Almaty hub automatically, and tracking and the temperature report follow the same shipment ID.</p></details>
+    <details><summary data-i18n="faq.5q">Is Kökzhol open to companies that compete with each other?</summary><p data-i18n="faq.5a">Yes. Kökzhol is a neutral carrier. Laboratories, pharmacies, clinics, manufacturers and distributors, including direct competitors, use the same rings and get the same temperature record. Customer data is kept separate per account, and no manufacturer or customer name appears in another customer's documents.</p></details>
+  </div>
+</section>
+
+<!-- 10 CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ct.eyebrow">Contact</span>
+      <h2 data-i18n="ct.h2">Request a lane. Become a partner.</h2>
+      <p class="lede" data-i18n="ct.lede">Tell us the city, the class and the monthly volume. Your enquiry is routed to the hub that serves your ring, and that hub replies with the delivery day and an indicative rate.</p>
+    </div>
+    <div class="layout">
+      <form id="lane-form" novalidate>
+        <label><span data-i18n="ct.segment">Segment</span>
+          <select id="f-segment" name="segment" required data-i18n-opts="ct.segments">
+            <option value="">Choose…</option><option>Laboratory</option><option>Pharmacy</option><option>Clinic / hospital</option><option>Manufacturer</option><option>Distributor</option><option>Partner / carrier</option>
+          </select>
+        </label>
+        <label><span data-i18n="ct.company">Company</span><input id="f-company" name="company" placeholder="Legal name" data-i18n-ph="ct.companyph" required></label>
+        <label><span data-i18n="ct.city">City</span>
+          <select id="f-city" name="city" required><option value="" data-i18n="ct.choose">Choose…</option></select>
+        </label>
+        <label><span data-i18n="ct.class">Temperature class</span>
+          <select id="f-class" name="class" required data-i18n-opts="ct.classes"><option value="">Choose…</option><option>+2…+8 °C chilled</option><option>+15…+25 °C ambient</option><option>−20 °C frozen</option><option>Mixed</option></select>
+        </label>
+        <label><span data-i18n="ct.volume">Volume per month</span><input id="f-volume" name="volume" placeholder="e.g. 40 boxes or 1.2 t" data-i18n-ph="ct.volumeph" required></label>
+        <label><span data-i18n="ct.contact">E-mail or phone</span><input id="f-contact" name="contact" placeholder="How the hub should reply" data-i18n-ph="ct.contactph" required></label>
+        <div class="route" id="route-line"><span data-i18n="ct.routed">Routed to</span><span class="hub" id="route-hub">—</span><span id="route-ring"></span></div>
+        <div class="full"><button class="btn btn-primary" type="submit" data-i18n="ct.send">Send enquiry to the hub</button></div>
+        <div class="sent" id="sent" role="status"></div>
+      </form>
+      <div class="hubs">
+        <div class="hub-card"><span class="eyebrow" data-i18n="ct.hub1e">Hub 1 · Astana</span><strong data-i18n="ct.hub1">Backbone, North, East and West rings</strong><span class="muted" data-i18n="ct.hubnote1">Contact details follow at launch.</span></div>
+        <div class="hub-card"><span class="eyebrow" data-i18n="ct.hub2e">Hub 2 · Almaty</span><strong data-i18n="ct.hub2">Backbone and South ring</strong><span class="muted" data-i18n="ct.hubnote2">Contact details follow at launch.</span></div>
+        <div class="msg">
+          <a href="https://t.me/kokzhol_kz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 3z"/></svg>Telegram · @kokzhol_kz</a>
+          <a href="https://wa.me/77000000000" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.5-4A8 8 0 1 1 8 18.5z"/></svg>WhatsApp · +7 700 000 00 00</a>
+        </div>
+        <span class="kz-note" data-i18n="ct.msgnote">Messenger handles and numbers are placeholders until the hubs open.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brandline"><img id="logo-foot" src="../assets/brand/horizontal-cyrillic-reverse.svg" alt="көкжол" width="155" height="26"><img src="../assets/brand/horizontal-latin-reverse.svg" alt="kökzhol" width="152" height="26" id="logo-foot2"></div>
+    <div class="cities" id="footer-cities"></div>
+    <div class="bottom">
+      <span class="signoff">Жолың болсын!</span>
+      <span data-i18n="foot.legal">ТОО «Көкжол» (placeholder) · kokzhol.kz (domain to be secured) · Backbone start 15.12.2026 · EN and RU versions; Kazakh version follows after native-speaker review.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://kokzhol.kz/#org","name":"Kökzhol","alternateName":"Көкжол","url":"https://kokzhol.kz/","logo":"https://kokzhol.kz/assets/brand/mark-color.svg","slogan":"Cold chain, on schedule.","description":"Temperature-controlled logistics network for lab diagnostics, medical devices and pharmaceuticals in Kazakhstan: two hubs, 21 cities, four route rings.","areaServed":"KZ","knowsLanguage":["en","ru"]},
+ {"@type":"LocalBusiness","name":"Kökzhol Hub Astana","parentOrganization":{"@id":"https://kokzhol.kz/#org"},"address":{"@type":"PostalAddress","addressLocality":"Astana","addressCountry":"KZ"}},
+ {"@type":"LocalBusiness","name":"Kökzhol Hub Almaty","parentOrganization":{"@id":"https://kokzhol.kz/#org"},"address":{"@type":"PostalAddress","addressLocality":"Almaty","addressCountry":"KZ"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How does Kökzhol prove the temperature of each box?","acceptedAnswer":{"@type":"Answer","text":"Every thermobox carries its own data logger from packing to hand-over. The curve is read at the hub gate and at delivery, compared with the allowed band for the class, and attached to the delivery note as a temperature report. Customers download it by shipment ID from the platform. This applies from launch."}},
+  {"@type":"Question","name":"Why are +15…+25 °C goods heated in winter?","acceptedAnswer":{"@type":"Answer","text":"At −45 °C the risk for ambient goods is freezing, not warming. Plastic consumables and many reagents are destroyed by a single frost cycle. In winter mode the ambient class travels in insulated bodies with conditioned packs, and every ambient label switches to heated so nobody mistakes the box for a chilled one."}},
+  {"@type":"Question","name":"Which cities does Kökzhol deliver to, and how often?","acceptedAnswer":{"@type":"Answer","text":"Twenty-one cities from the hubs in Astana and Almaty, on four route rings plus a weekly backbone between the two hubs. Each city has a fixed delivery day on its ring. The West ring, the longest at 6,482 km, reaches Aktau at 2,670 km from the hub. The timetable is published at launch on 15 December 2026."}},
+  {"@type":"Question","name":"Can a lab book a shipment online and see the price first?","acceptedAnswer":{"@type":"Answer","text":"Yes, from launch. The customer portal shows the ring, the next delivery day and an indicative price for the chosen temperature class and volume before the slot is confirmed. Bookings route to the Astana or Almaty hub automatically, and tracking and the temperature report follow the same shipment ID."}},
+  {"@type":"Question","name":"Is Kökzhol open to companies that compete with each other?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kökzhol is a neutral carrier. Laboratories, pharmacies, clinics, manufacturers and distributors, including direct competitors, use the same rings and get the same temperature record. Customer data is kept separate per account, and no manufacturer or customer name appears in another customer's documents."}}
+ ]}
+]}
+</script>
+
+<script>
+/* ---------- data ---------- */
+const CITIES=[
+ ['Astana',71.43,51.17,'HUB','AST','Астана'],['Almaty',76.95,43.24,'HUB','ALA','Алматы'],
+ ['Karaganda',73.10,49.80,'MAIN','AST','Караганда'],
+ ['Kokshetau',69.39,53.28,'NORTH','AST','Кокшетау'],['Petropavl',69.16,54.87,'NORTH','AST','Петропавловск'],['Kostanay',63.63,53.21,'NORTH','AST','Костанай'],
+ ['Pavlodar',76.95,52.29,'EAST','AST','Павлодар'],['Aksu',76.93,52.04,'EAST','AST','Аксу'],['Semey',80.23,50.41,'EAST','AST','Семей'],['Oskemen',82.60,49.95,'EAST','AST','Усть-Каменогорск'],
+ ['Taldykorgan',78.37,45.02,'SOUTH','ALA','Талдыкорган'],['Taraz',71.37,42.90,'SOUTH','ALA','Тараз'],['Shymkent',69.60,42.32,'SOUTH','ALA','Шымкент'],['Turkistan',68.25,43.30,'SOUTH','ALA','Туркестан'],['Kyzylorda',65.51,44.85,'SOUTH','ALA','Кызылорда'],['Saryagash',69.17,41.46,'SOUTH','ALA','Сарыагаш'],
+ ['Aktobe',57.17,50.28,'WEST','AST','Актобе'],['Khromtau',58.43,50.25,'WEST','AST','Хромтау'],['Uralsk',51.37,51.23,'WEST','AST','Уральск'],['Atyrau',51.88,47.11,'WEST','AST','Атырау'],['Aktau',51.17,43.65,'WEST','AST','Актау']
+];
+const RINGS={
+ MAIN:{color:0x0E6E7E,css:'#0E6E7E',pts:['Astana','Karaganda','Almaty']},
+ NORTH:{color:0x7FD3DE,css:'#7FD3DE',pts:['Astana','Kokshetau','Petropavl','Kostanay','Astana']},
+ EAST:{color:0x8FA6B0,css:'#8FA6B0',pts:['Astana','Pavlodar','Aksu','Semey','Oskemen','Astana']},
+ SOUTH:{color:0xC8963E,css:'#C8963E',pts:['Almaty','Taldykorgan','Almaty','Taraz','Shymkent','Saryagash','Turkistan','Kyzylorda','Almaty']},
+ WEST:{color:0xE3ECEF,css:'#E3ECEF',pts:['Astana','Aktobe','Khromtau','Uralsk','Atyrau','Aktau','Astana']}
+};
+const KZ=[[46.5,48.5],[47,50.5],[50.5,51.6],[52.5,51.7],[55.5,50.6],[58.5,51],[60,52],[61,52.5],[61.5,53.5],[63,54.2],[65.5,54.5],[68.5,55.3],[70.5,55.2],[72.5,54.2],[76.5,54.3],[78,53.3],[80,51.3],[81.5,51],[83.5,51],[85,50],[87.3,49.1],[86.5,48],[85.5,47],[83,47.2],[82.5,45.5],[80.5,45],[80,43],[79.5,41.7],[76.5,42.9],[73.5,43],[70.8,42.3],[69.5,41.3],[68,41],[66.5,41.8],[66,43.2],[64.5,43.5],[62,43.5],[58.5,45.5],[55.9,44.9],[55,41.3],[53,42.3],[51,43.5],[50.5,44.5],[51.5,45.5],[52.5,46.5],[49,46.5],[48,47]];
+const UZ=[[56,41.3],[58.5,45.5],[62,43.5],[66,43.2],[66.5,41.8],[68,41],[69.5,41.3],[70.8,42.3],[71.5,41],[73,40.5],[71.5,39.5],[68,38.5],[67,37.5],[66,37.5],[62,39.5],[60,41.5]];
+const KG=[[69.5,41.3],[70.8,42.3],[73.5,43],[76.5,42.9],[79.5,41.7],[80.2,42.2],[78,41],[76,40.5],[73.5,39.5],[71.5,39.5],[73,40.5],[71.5,41]];
+const NEIGH=[['Tashkent',69.24,41.3,'Ташкент'],['Bishkek',74.59,42.87,'Бишкек']];
+const byName=Object.fromEntries(CITIES.map(c=>[c[0],c]));
+let LANG='en';
+const cityLabel=c=>LANG==='ru'?c[5]:c[0];
+
+/* ---------- RU strings (EN lives in the markup) ---------- */
+const RU={
+'meta.desc':'Kökzhol / Көкжол: температурная логистика для лабораторной диагностики, медицинских изделий и фармацевтики в Казахстане. Два хаба, 21 город, четыре кольцевых маршрута. Холодовая цепь точно по графику.',
+'nav.network':'Сеть','nav.cold':'Холодовая цепь','nav.platform':'Платформа','nav.roadmap':'Дорожная карта','nav.quality':'Качество','nav.cta':'Запросить маршрут',
+'hero.eyebrow':'Температурная логистика · Казахстан','hero.h1':'Холодовая цепь точно по графику.','hero.claim':'Cold chain, on schedule. · Суық тізбек — кестемен.',
+'hero.lede':'Между январским утром и июльским днём на наших маршрутах 97 градусов. Лабораторная диагностика, медицинские изделия и фармацевтика движутся между двумя хабами и 21 городом по фиксированным кольцевым маршрутам, с температурной записью для каждого бокса.',
+'hero.cta1':'Запросить маршрут / Стать партнёром','hero.cta2':'Связаться с хабом Астана или Алматы','hero.launch':'Старт магистрали',
+'stat.hubs':'хаба: Астана, Алматы','stat.cities':'город обслуживания','stat.rings':'кольцевых маршрута + еженедельная магистраль','stat.climate':'зима / лето на маршруте',
+'part.shell':'корпус','part.ins':'изоляция','part.pack':'хладоэлементы','part.rack':'штатив реагентов','part.log':'логгер',
+'problem.eyebrow':'Проблема','problem.h2':'Экспресс — исключение. Сегодня он стал правилом.',
+'problem.lede':'В медицинских цепочках поставок Казахстана значительная часть транспортного бюджета уходит на экспресс-отправки, которые везут лишь малую часть веса. Каждая заказывается по телефону, упаковывается вручную и отслеживается на надежде. Kökzhol делает плановую холодовую цепь нормой.',
+'problem.c1e':'Сегодня','problem.c1h':'Экспресс по случаю','problem.c1p':'Реагенты уезжают, когда кто-то нашёл курьера. Подтверждение температуры — фото термометра, если оно есть. Два хаба нередко отправляют в один город в один день, по отдельности.',
+'problem.c2e':'С Kökzhol','problem.c2h':'Фиксированный день, одна машина, одна запись','problem.c2p':'У каждого города есть день доставки на своём кольце. Грузы обоих хабов консолидируются. Один логгер на бокс ведёт запись; платформа показывает её ещё до вскрытия бокса.',
+'problem.c3e':'Что меняется для вас','problem.c3h':'Экспресс только когда он действительно нужен','problem.c3p':'Плановое пополнение идёт по расписанию по плановому тарифу. Экспресс остаётся для по-настоящему срочных случаев, с указанной причиной.',
+'net.eyebrow':'Сеть','net.h2':'Два хаба. Четыре кольца. Одна еженедельная магистраль.',
+'net.lede':'Хабы — Астана и Алматы. Их связывает еженедельная магистраль протяжённостью около 1 200 км. Четыре кольцевых маршрута выходят из хабов по фиксированным петлям и возвращаются, поэтому каждый город видит ту же машину в тот же день. Актау, самая дальняя точка, находится в 2 670 км от хаба.',
+'net.note':'хабы — золотом · кольца прорисовываются при появлении раздела',
+'net.th1':'Кольцо','net.th2':'Откуда','net.th3':'Города','net.th4':'Петля',
+'ring.main':'Магистраль','ring.main.from':'Астана ⇄ Алматы','ring.main.c':'Караганда','ring.main.len':'≈1 200 км · еженедельно',
+'ring.north':'Север','city.astana':'Астана','ring.north.c':'Кокшетау, Петропавловск, Костанай','ring.north.len':'1 580 км',
+'ring.east':'Восток','city.astana2':'Астана','ring.east.c':'Павлодар, Аксу, Семей, Усть-Каменогорск','ring.east.len':'1 950 км',
+'ring.south':'Юг','city.almaty':'Алматы','ring.south.c':'Талдыкорган, Тараз, Шымкент, Туркестан, Кызылорда, Сарыагаш','ring.south.len':'3 250 км',
+'ring.west':'Запад','city.astana3':'Астана','ring.west.c':'Актобе, Хромтау, Уральск, Атырау, Актау','ring.west.len':'6 482 км · 11,4 дня в пути',
+'net.tt':'Фиксированное расписание и опубликованные дни отправления','badge.launch':'с запуска',
+'net.partners':'Партнёрам и перевозчикам: на магистрали и Западном кольце есть обратная загрузка. Обсудим регулярные направления.',
+'cl.eyebrow':'Климат','cl.h2':'При −45&nbsp;°C опасность — мороз, а не жара.',
+'cl.lede':'В Казахстане сухой континентальный климат с перепадом в 97 градусов. Замёрзший реагент — потерянный реагент, поэтому зимой класс +15…+25&nbsp;°C едет с подогревом, а грузы +2…+8&nbsp;°C защищаются сначала от мороза и лишь потом от тепла.',
+'cl.jan':'Январь','cl.janp':'Изотермические кузова −70…+75&nbsp;°C, пассивные термоконтейнеры, зимний режим на каждой этикетке класса ambient: «подогрев». Буферы на бураны заложены в расписание колец.',
+'cl.span':'Перепад','cl.same':'тот же бокс, тот же реагент','cl.jul':'Июль','cl.julp':'Белые кузова отражают солнце. Хладоэлементы кондиционируются под класс, а логгеры показывают фактическую кривую, а не предположение.',
+'cc.eyebrow':'Холодовая цепь','cc.h2':'Три класса. Один логгер на бокс. Этикетки из системы.',
+'cc.chilled':'Охлаждённый','badge.launch2':'с запуска','cc.chilledp':'Реагенты, калибраторы, контроли. Термобокс валидирован на двое суток; охлаждаемое промежуточное хранение при кросс-докинге.','cc.chilledh':'Не замораживать',
+'cc.ambient':'Комнатный','badge.launch3':'с запуска','cc.ambientp':'Пластиковые расходники, изделия, большинство лекарств. Зимой чувствительны к морозу, поэтому с первых заморозков этикетка переключается на «подогрев».','cc.ambienth':'Подогрев (зимний режим)',
+'cc.frozen':'Заморозка','badge.launch4':'с запуска','cc.frozenp':'Сухой лёд (UN 1845), водители с допуском ADR. По расписанию, а не как исключение.','cc.frozenh':'Замороженный груз',
+'badge.launch5':'с запуска','cc.p1h':'Один логгер на каждый бокс.','cc.p1p':'У каждой отправки своя температурная кривая — от времени упаковки до передачи, доступная по номеру отправки.',
+'badge.now':'сейчас','cc.p2h':'Этикетки печатает система, никогда от руки.','cc.p2p':'Номер отправки, номер логгера и время упаковки на каждом боксе, диапазон класса крупным шрифтом и штрихкод Code 128.',
+'pf.eyebrow':'Платформа','pf.h2':'Забронируйте слот, следите за машиной, скачайте кривую.',
+'pf.lede':'Сайт — входная дверь платформы. Клиенты бронируют онлайн и видят ориентировочную цену до подтверждения. Каждый хаб ведёт приёмку в той же системе, поэтому запись начинается с ворот.',
+'pf.f1h':'Онлайн-бронирование слота с ориентировочной ценой','badge.launch6':'с запуска','pf.f1p':'Выберите кольцо, день доставки и класс. Цена показывается до подтверждения.',
+'pf.f2h':'Отслеживание в реальном времени','badge.launch7':'с запуска','pf.f2p':'Положение машины и статус бокса по номеру отправки. Данные размещены в Казахстане.',
+'pf.f3h':'Температурный отчёт по каждой отправке','badge.launch8':'с запуска','pf.f3p':'Кривая логгера с закрашенным допустимым диапазоном — PDF вместе с накладной.',
+'pf.f4h':'Приёмка товара в хабе','badge.launch9':'с запуска','pf.f4p':'Список входящих по хабу, временные окна на рампе, проверка на воротах с фактической температурой, передача логгера и сверка SSCC с уведомлением.',
+'mock.title':'Приёмка · Хаб AST','mock.demo':'демо · с запуска','mock.inbound':'Входящие сегодня · Астана',
+'mock.th1':'Отправка','mock.th2':'Откуда','mock.th3':'Класс','mock.th4':'Рампа','mock.th5':'Статус',
+'city.almaty2':'Алматы','city.almaty3':'Алматы','city.karaganda':'Караганда','city.kostanay':'Костанай',
+'mock.s1':'Проверено','mock.s2':'Проверено','mock.s3':'Разгрузка','mock.s4':'Ожидается','mock.slots':'Окна на рампе · рампа 2',
+'mock.gate':'Проверка на воротах · бокс 3 из 12','mock.r1':'Допустимый диапазон','mock.r2':'Передача логгера','mock.r2v':'водитель → хаб','mock.r3':'Сверка SSCC','mock.r4':'Простой на рампе','mock.r5':'Отклонения',
+'sv.eyebrow':'Кому мы служим','sv.h2':'Нейтрально и открыто для всего рынка.',
+'sv.lede':'Kökzhol — независимый перевозчик. Лаборатории, аптеки, клиники, производители и дистрибьюторы пользуются одними кольцами и одной температурной записью.',
+'sv.1h':'Лаборатории','sv.1l':'<li>Подтверждение температуры по каждому боксу</li><li>Фиксированный день доставки по городу</li><li>Зимняя обработка реагентов комнатного класса</li><li>Образцы UN 3373 на обратном плече</li>',
+'sv.2h':'Аптеки и клиники','sv.2l':'<li>Ориентировочная цена до бронирования</li><li>Онлайн-бронирование слота</li><li>День доставки известен заранее</li>',
+'sv.3h':'Производители и дистрибьюторы','sv.3l':'<li>Рамка GDP (ЕАЭС и РК)</li><li>Покрытие 21 города из двух хабов</li><li>Данные и отчёты по каждой отправке</li><li>Нейтральность к вашим клиентам</li>',
+'sv.4h':'Партнёры и перевозчики','sv.4l':'<li>Обратная загрузка на магистрали и Западном кольце</li><li>Региональное расширение с 2028 года</li><li>Регулярные направления, а не разовые загрузки</li>',
+'sv.5h':'Поставщики медицинских изделий','sv.5l':'<li>Комнатный класс с зимним подогревом</li><li>Консолидированное плановое пополнение</li><li>Хранение в хабе с мониторингом 24/7 (в подготовке)</li>',
+'sv.6h':'Больницы и диагностические центры','sv.6l':'<li>Класс заморозки по регулярному расписанию</li><li>Сухой лёд — водители с допуском ADR</li><li>Проверка фактической температуры на воротах при прибытии</li>',
+'bh.eyebrow':'Кто стоит за Kökzhol','bh.h2':'Немецко-казахстанская экспертиза, созданная для степи.',
+'bh.lede':'Сеть спланирована вместе с немецкими профессионалами логистики в рамках технико-экономического исследования из 150 вопросов и с первого дня выстраивается по европейской надлежащей дистрибьюторской практике.',
+'bh.1h':'Правила и стандарты GDP ЕС','bh.1p':'Процессы, документация и обучение следуют европейской GDP с привязкой к требованиям ЕАЭС и Казахстана.','badge.prep':'в подготовке',
+'bh.2h':'Опыт немецких профессионалов','bh.2p':'Проектирование маршрутов, инженерия холодовой цепи и процессы хабов опираются на практический опыт немецкой фармацевтической и лабораторной логистики.',
+'bh.3h':'Консалтинг и стратегические инвестиции немецких партнёров','bh.3p':'Немецкие партнёры поддерживают Kökzhol консалтингом и стратегическими инвестициями, поэтому сеть финансируется для работы по расписанию, а не по разовому спросу.',
+'bh.4h':'Параллельный опыт в температурной логистике','bh.4p':'Команда работала с продуктами питания, опасными грузами, косметикой и цветами — там, где температура, сроки и документы решают, прибудет ли товар пригодным.',
+'rm.eyebrow':'Дорожная карта','rm.h2':'От магистрали к региону.',
+'rm.1h':'Старт магистрали','rm.1p':'Первый еженедельный рейс Астана ⇄ Алматы через Караганду, три класса и один логгер на бокс.',
+'rm.2h':'Весь Казахстан','rm.2p':'Северное, Восточное, Южное и Западное кольца в работе; 21 город из двух хабов.',
+'rm.3h':'Узбекистан и Кыргызстан','rm.3p':'Южное продолжение до Ташкента и Бишкека на Южном кольце — те же классы и те же записи.',
+'rm.4w':'Далее','rm.4h':'Широкий регион','rm.4p':'Направления на соседние рынки по мере спроса партнёров и сертификации GDP.',
+'q.eyebrow':'Качество','q.h2':'По правилам, по которым аудируют лаборатории.',
+'q.lede':'Ничто из перечисленного пока не заявлено как сертифицированное. Каждый пункт в подготовке и будет отмечен на этой странице как действующий после аудита или калибровки.',
+'q.1h':'GDP ЕАЭС (Решение ЕЭК 80/2016)','badge.prep2':'в подготовке','q.1p':'Надлежащая дистрибьюторская практика Евразийского экономического союза для обоих хабов и всех колец.',
+'q.2h':'Правила GDP Минздрава РК','badge.prep3':'в подготовке','q.2p':'Национальные правила дистрибуции лекарственных средств и медицинских изделий.',
+'q.3h':'Регистраторы температуры EN 12830','badge.prep4':'в подготовке','q.3p':'Юридически признанный регистратор в каждой машине плюс датчики в каждой камере.',
+'q.4h':'Температурное картирование по WHO TRS 961','badge.prep5':'в подготовке','q.4p':'Летнее и зимнее картирование хабов и машин; датчики ежегодно калибруются по ISO 17025.',
+'q.5h':'GDP ЕС как рабочий стандарт','badge.prep6':'в подготовке','q.5p':'Процедуры и обучение следуют GDP ЕС, поэтому один пакет доказательств служит ЕАЭС, РК и европейским партнёрам.',
+'q.6h':'Опасные грузы','badge.prep7':'в подготовке','q.6p':'Сухой лёд UN 1845 и диагностические образцы UN 3373 — водители с допуском ADR.',
+'faq.h2':'Вопросы, которые лаборатории и аптеки задают первыми.',
+'faq.1q':'Как Kökzhol подтверждает температуру каждого бокса?','faq.1a':'В каждом термобоксе свой логгер — от упаковки до передачи. Кривая считывается на воротах хаба и при доставке, сравнивается с допустимым диапазоном класса и прикладывается к накладной как температурный отчёт. Клиенты скачивают его по номеру отправки на платформе. Действует с запуска.',
+'faq.2q':'Почему зимой грузы +15…+25&nbsp;°C подогревают?','faq.2a':'При −45&nbsp;°C риск для грузов комнатного класса — замерзание, а не нагрев. Пластиковые расходники и многие реагенты гибнут от одного цикла заморозки. В зимнем режиме этот класс едет в изотермических кузовах с кондиционированными элементами, а каждая этикетка переключается на «подогрев», чтобы бокс не приняли за охлаждённый.',
+'faq.3q':'В какие города доставляет Kökzhol и как часто?','faq.3a':'В 21 город из хабов в Астане и Алматы по четырём кольцевым маршрутам и еженедельной магистрали между хабами. У каждого города фиксированный день доставки на своём кольце. Западное кольцо, самое длинное — 6 482 км, доходит до Актау в 2 670 км от хаба. Расписание публикуется к запуску 15 декабря 2026 года.',
+'faq.4q':'Может ли лаборатория забронировать отправку онлайн и увидеть цену заранее?','faq.4a':'Да, с запуска. Портал клиента показывает кольцо, ближайший день доставки и ориентировочную цену для выбранного класса и объёма до подтверждения слота. Заявки автоматически направляются в хаб Астана или Алматы, а отслеживание и температурный отчёт идут по тому же номеру отправки.',
+'faq.5q':'Открыт ли Kökzhol для конкурирующих между собой компаний?','faq.5a':'Да. Kökzhol — нейтральный перевозчик. Лаборатории, аптеки, клиники, производители и дистрибьюторы, включая прямых конкурентов, пользуются одними кольцами и получают одинаковую температурную запись. Данные клиентов разделены по аккаунтам, и ни одно имя производителя или клиента не появляется в документах другого клиента.',
+'ct.eyebrow':'Контакт','ct.h2':'Запросите маршрут. Станьте партнёром.',
+'ct.lede':'Укажите город, класс и месячный объём. Запрос направляется в хаб, обслуживающий ваше кольцо, и хаб отвечает днём доставки и ориентировочным тарифом.',
+'ct.segment':'Сегмент','ct.segments':['Выберите…','Лаборатория','Аптека','Клиника / больница','Производитель','Дистрибьютор','Партнёр / перевозчик'],
+'ct.company':'Компания','ct.companyph':'Юридическое название','ct.city':'Город','ct.choose':'Выберите…',
+'ct.class':'Температурный класс','ct.classes':['Выберите…','+2…+8 °C охлаждённый','+15…+25 °C комнатный','−20 °C заморозка','Смешанный'],
+'ct.volume':'Объём в месяц','ct.volumeph':'напр. 40 боксов или 1,2 т','ct.contact':'E-mail или телефон','ct.contactph':'Как хабу ответить вам',
+'ct.routed':'Направляется в','ct.send':'Отправить запрос в хаб',
+'ct.hub1e':'Хаб 1 · Астана','ct.hub1':'Магистраль, Северное, Восточное и Западное кольца','ct.hubnote1':'Контактные данные появятся к запуску.',
+'ct.hub2e':'Хаб 2 · Алматы','ct.hub2':'Магистраль и Южное кольцо','ct.hubnote2':'Контактные данные появятся к запуску.',
+'ct.msgnote':'Адреса мессенджеров и номера — заглушки до открытия хабов.',
+'hero.note':'один рейс · одна кривая · Астана → Алматы','board.title':'Ближайшие отправления · демо','badge.launch10':'с запуска','ring.main2':'Магистраль','ring.north2':'Север','ring.east2':'Восток','ring.south2':'Юг','ring.west2':'Запад',
+'foot.legal':'ТОО «Көкжол» (рабочее название) · kokzhol.kz (домен регистрируется) · Старт магистрали 15.12.2026 · Версии EN и RU; казахская версия после проверки носителем языка.'
+};
+const EN_ARR={'ct.segments':['Choose…','Laboratory','Pharmacy','Clinic / hospital','Manufacturer','Distributor','Partner / carrier'],'ct.classes':['Choose…','+2…+8 °C chilled','+15…+25 °C ambient','−20 °C frozen','Mixed']};
+const ORIG={};
+function applyLang(l){
+ LANG=l;document.documentElement.lang=l;
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(!(k in ORIG))ORIG[k]=el.innerHTML;el.innerHTML=l==='ru'&&RU[k]!=null?RU[k]:ORIG[k];});
+ document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh;if(!(k in ORIG))ORIG[k]=el.placeholder;el.placeholder=l==='ru'?RU[k]:ORIG[k];});
+ document.querySelectorAll('[data-i18n-content]').forEach(el=>{const k=el.dataset.i18nContent;if(!(k in ORIG))ORIG[k]=el.content;el.content=l==='ru'?RU[k]:ORIG[k];});
+ document.querySelectorAll('[data-i18n-opts]').forEach(sel=>{const k=sel.dataset.i18nOpts;const arr=l==='ru'?RU[k]:EN_ARR[k];const v=sel.selectedIndex;[...sel.options].forEach((o,i)=>{o.textContent=arr[i];});sel.selectedIndex=v;});
+ document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+ document.getElementById('logo-img').src=l==='ru'?'../assets/brand/horizontal-cyrillic-reverse.svg':'../assets/brand/horizontal-latin-reverse.svg';
+ document.getElementById('logo-img').alt=l==='ru'?'көкжол':'kökzhol';
+ document.title=l==='ru'?'Kökzhol · Көкжол':'Kökzhol Animated';
+ fillCities();route();svgMap('svg-map-1',1);svgMap('svg-map-2',roadStage);setRoadNote();countdown();flaps(false);
+ try{localStorage.setItem('kz-lang',l);}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+
+/* ---------- footer cities, form routing ---------- */
+const citySel=document.getElementById('f-city');
+function fillCities(){
+ document.getElementById('footer-cities').innerHTML=CITIES.map(c=>`<span class="${c[3]==='HUB'?'hub':''}">${cityLabel(c)}</span>`).join('');
+ const v=citySel.value;citySel.innerHTML='';const o0=document.createElement('option');o0.value='';o0.textContent=LANG==='ru'?'Выберите…':'Choose…';citySel.appendChild(o0);
+ CITIES.slice().sort((a,b)=>cityLabel(a).localeCompare(cityLabel(b),LANG)).forEach(c=>{const o=document.createElement('option');o.value=c[0];o.textContent=cityLabel(c);citySel.appendChild(o);});
+ citySel.value=v;
+}
+const ringName={en:{HUB:'hub city',MAIN:'Backbone',NORTH:'North ring',EAST:'East ring',SOUTH:'South ring',WEST:'West ring'},ru:{HUB:'город-хаб',MAIN:'Магистраль',NORTH:'Северное кольцо',EAST:'Восточное кольцо',SOUTH:'Южное кольцо',WEST:'Западное кольцо'}};
+const hubName=h=>LANG==='ru'?(h==='AST'?'хаб Астана':'хаб Алматы'):(h==='AST'?'Astana hub':'Almaty hub');
+function route(){const c=byName[citySel.value];const hub=document.getElementById('route-hub'),r=document.getElementById('route-ring');
+ if(!c){hub.textContent='—';r.textContent='';return;}hub.textContent=hubName(c[4]);r.textContent='· '+ringName[LANG][c[3]];}
+citySel.addEventListener('change',route);
+document.getElementById('lane-form').addEventListener('submit',e=>{
+ e.preventDefault();const form=e.target;const sent=document.getElementById('sent');
+ const miss=[...form.querySelectorAll('[required]')].filter(i=>!i.value);
+ if(miss.length){miss[0].focus();sent.className='sent show';sent.textContent=LANG==='ru'?`Заполните ещё ${miss.length} поле(й), чтобы хаб мог ответить.`:'Please fill in '+miss.length+' remaining field'+(miss.length>1?'s':'')+' so the hub can reply.';return;}
+ const c=byName[citySel.value];const hub=hubName(c?c[4]:'AST');sent.className='sent show';
+ const cls=form['class'].value;
+ sent.innerHTML=LANG==='ru'
+  ?`<strong>Запрос подготовлен для ${hub}.</strong> ${form.company.value} · ${cityLabel(c)} · ${cls} · ${form.volume.value}.<br><span style="color:var(--ink-muted)">Демо-страница: почтовый ящик хаба ещё не подключён. До запуска отправьте те же данные в ${hub} через Telegram или WhatsApp.</span>`
+  :`<strong>Enquiry prepared for the ${hub}.</strong> ${form.company.value} · ${cityLabel(c)} · ${cls} · ${form.volume.value}.<br><span style="color:var(--ink-muted)">Demo page: the hub mailbox is not connected yet. Until launch, send the same details to the ${hub} via Telegram or WhatsApp.</span>`;
+});
+
+/* ---------- countdown to 15.12.2026 ---------- */
+function countdown(){const el=document.getElementById('countdown');const d=Math.ceil((new Date(2026,11,15)-new Date())/86400000);
+ if(d>0)el.textContent=LANG==='ru'?`· через ${d} дн.`:`· in ${d} days`;else if(d>-1)el.textContent=LANG==='ru'?'· сегодня':'· today';else el.textContent=LANG==='ru'?'· в работе':'· running';}
+
+/* ---------- SVG fallback maps (variant B schematic) ---------- */
+function svgMap(id,stage){
+ const s=document.getElementById(id);if(!s)return;
+ const P=(lon,lat)=>[(lon-45)*13.6,(56.5-lat)*13.6*1.35];
+ const pts=a=>a.map(p=>P(p[0],p[1]).join(',')).join(' ');
+ let out='';
+ out+=`<polygon points="${pts(KZ)}" fill="#13303F" stroke="#2A4654" stroke-width="1"/>`;
+ out+=`<polygon class="nb" points="${pts(UZ)}" fill="${stage>=2?'#1C4A54':'#0D2838'}" stroke="#2A4654" stroke-width="1"/><polygon class="nb" points="${pts(KG)}" fill="${stage>=2?'#1C4A54':'#0D2838'}" stroke="#2A4654" stroke-width="1"/>`;
+ out+=`<ellipse class="halo" cx="${P(67.5,47.2)[0]}" cy="${P(67.5,47.2)[1]}" rx="300" ry="170" fill="none" stroke="#7FD3DE" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.6"/>`;
+ const order=['MAIN','NORTH','EAST','SOUTH','WEST'];
+ order.forEach((k,i)=>{const r=RINGS[k];const d='M'+r.pts.map(n=>P(byName[n][1],byName[n][2]).join(' ')).join(' L ');
+  out+=`<path class="draw ${k==='MAIN'?'':'st1'} d${i}" ${k==='MAIN'?'id="'+id+'-main"':''} pathLength="1" d="${d}" fill="none" stroke="${r.css}" stroke-width="${k==='MAIN'?3:2}" stroke-linejoin="round" stroke-linecap="round"/>`;});
+ CITIES.forEach(c=>{const [x,y]=P(c[1],c[2]);const hub=c[3]==='HUB';
+  out+=`<circle cx="${x}" cy="${y}" r="${hub?6:3}" fill="${hub?'#C8963E':'#E3ECEF'}"/>`;
+  if(hub||['Aktau','Oskemen','Shymkent','Petropavl','Uralsk'].includes(c[0]))out+=`<text class="fade d1" x="${x+9}" y="${y+4}" font-family="IBM Plex Mono,monospace" font-size="11" fill="${hub?'#C8963E':'#A9BFC7'}">${cityLabel(c)}${c[0]==='Aktau'?(LANG==='ru'?' · 2 670 км':' · 2,670 km'):''}</text>`;});
+ NEIGH.forEach(n=>{const [x,y]=P(n[1],n[2]);out+=`<g class="nbdot"><circle cx="${x}" cy="${y}" r="4" fill="#7FD3DE"/><text x="${x+8}" y="${y+4}" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7FD3DE">${LANG==='ru'?n[3]:n[0]}</text></g>`;});
+ const [tx,ty]=P(byName.Almaty[1],byName.Almaty[2]);
+ out+=`<circle class="truck-dot" r="5" cx="${tx}" cy="${ty}" fill="#FFFFFF" stroke="#0B2230" stroke-width="1.5"><animateMotion id="${id}-truck" dur="3s" begin="indefinite" fill="freeze"><mpath href="#${id}-main"/></animateMotion></circle>`;
+ s.innerHTML=out;s.setAttribute('data-stage',String(stage));
+}
+
+/* ---------- roadmap stage ---------- */
+let roadStage=0;
+const roadNotes={en:['stage · backbone','stage · all of Kazakhstan','stage · Uzbekistan and Kyrgyzstan','stage · the wider region'],ru:['этап · магистраль','этап · весь Казахстан','этап · Узбекистан и Кыргызстан','этап · широкий регион']};
+function setRoadNote(){document.getElementById('road-note').textContent=roadNotes[LANG][roadStage];}
+function setStage(n){roadStage=n;document.querySelectorAll('#timeline .step').forEach(s=>s.classList.toggle('on',+s.dataset.stage===n));setRoadNote();const m=document.getElementById('svg-map-2');m.setAttribute('data-stage',String(n));m.querySelectorAll('.nb').forEach(p=>p.setAttribute('fill',n>=2?'#1C4A54':'#0D2838'));}
+document.querySelectorAll('#timeline .step').forEach(s=>{s.addEventListener('click',()=>setStage(+s.dataset.stage));s.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setStage(+s.dataset.stage);}});});
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setStage(+e.target.dataset.stage);});},{rootMargin:'-45% 0px -45% 0px'});
+ document.querySelectorAll('#timeline .step').forEach(s=>io.observe(s));}
+
+/* ---------- initial language: stored choice, else system language ---------- */
+(function(){let l='en';try{l=localStorage.getItem('kz-lang')||'';}catch(e){}
+ if(l!=='en'&&l!=='ru'){const langs=navigator.languages||[navigator.language||''];l=langs.some(x=>/^(ru|kk|kz)/i.test(x))?'ru':'en';}
+ applyLang(l);})();
+
+/* ---------- variant B motion controller: scroll triggers only; CSS and SVG do the drawing ---------- */
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced)document.documentElement.classList.add('anim');
+const FLAPCH='ABCDEFGHKLMNOPRSTUW0123456789·→';
+function flaps(animate){document.querySelectorAll('.flap').forEach(el=>{const t=el.dataset.text;el.innerHTML=[...t].map(ch=>`<span>${ch===' '?'&nbsp;':ch}</span>`).join('');
+ if(!animate||reduced)return;[...el.children].forEach((sp,i)=>{const final=sp.textContent;if(final.trim()==='')return;let n=0;const steps=4+Math.floor(Math.random()*5);
+  sp.style.animationDelay=(i*0.06)+'s';const iv=setInterval(()=>{n++;sp.textContent=n>=steps?final:FLAPCH[Math.floor(Math.random()*FLAPCH.length)];if(n>=steps)clearInterval(iv);},90+i*8);});});}
+function tick(el,to,dur,dec){if(reduced){el.textContent=to.toFixed(dec);return;}const t0=performance.now();const from=0;
+ const f=now=>{const p=Math.min(1,(now-t0)/dur);const e=1-Math.pow(1-p,3);el.textContent=(from+(to-from)*e).toFixed(dec);if(p<1)requestAnimationFrame(f);};requestAnimationFrame(f);}
+function startTruck(id){const a=document.getElementById(id+'-truck');if(!a||reduced)return;try{a.beginElement();}catch(e){}}
+const fired=new Set();
+function fire(key,fn){if(fired.has(key))return;fired.add(key);fn();}
+function enter(el){const sec=el.closest('section')||el;
+ if(el.id==='scene-curve')fire('hero',()=>{el.classList.add('go');tick(document.getElementById('hero-reading'),4.6,2400,1);document.querySelectorAll('.hero [data-count]').forEach(b=>tick(b,+b.dataset.count,1600,0));});
+ if(el.id==='scene-map')fire('map',()=>{el.classList.add('go');setTimeout(()=>startTruck('svg-map-1'),600);const b=document.getElementById('board');setTimeout(()=>{b.classList.add('go');flaps(true);},900);});
+ if(el.id==='scene-road')fire('road',()=>{el.classList.add('go');setTimeout(()=>startTruck('svg-map-2'),400);});
+ if(el.classList.contains('climate'))fire('climate',()=>el.querySelectorAll('[data-count]').forEach(b=>tick(b,+b.dataset.count,1800,0)));
+}
+flaps(false);
+if(reduced){document.querySelectorAll('[data-count]').forEach(b=>b.textContent=b.dataset.count);document.getElementById('hero-reading').textContent='4.6';}
+else{
+ /* the hero motion starts at load; the sections start when they enter view */
+ enter(document.getElementById('scene-curve'));
+ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){enter(e.target);io.unobserve(e.target);}});},{threshold:0.35});
+ ['scene-map','scene-road'].forEach(id=>io.observe(document.getElementById(id)));io.observe(document.querySelector('.climate'));
+}
+</script>
+</body>
+</html>
