@@ -1,0 +1,26 @@
+{
+ "name": "Kökzhol",
+ "short_name": "Kökzhol",
+ "description": "Temperature-controlled logistics for pharma, lab diagnostics and medical devices in Kazakhstan: 2 hubs, 21 cities, a temperature record per box. Start 15.12.26.",
+ "start_url": ".",
+ "display": "browser",
+ "background_color": "#0B2230",
+ "theme_color": "#0E6E7E",
+ "icons": [
+  {
+   "src": "assets/favicon-32.png",
+   "sizes": "32x32",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/apple-touch-icon-180.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  },
+  {
+   "src": "assets/favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  }
+ ]
+}

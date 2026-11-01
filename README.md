@@ -1,3 +1,34 @@
-# Kökzhol landing page — variant C (3D)
+# Kökzhol — landing page previews (temporary GitHub Pages host)
 
-Temporary preview hosting on GitHub Pages. Source of truth is the project folder; this repo is removed once kokzhol.kz is live.
+Canonical production domain: https://kokzhol.kz/ (to be secured). These previews carry
+`<meta name="robots" content="noindex, follow">` and a canonical to the production domain, so they are
+not indexed. **At go-live** replace that meta with
+`<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">`,
+point `og:image` / `primaryImageOfPage` at the production domain, and submit `sitemap.xml`
+in Google Search Console and Bing Webmaster Tools.
+
+| Variant | Path | What it is |
+|---|---|---|
+| C | `/` | 3D scenes (Three.js r128 from cdnjs, code-built geometry) |
+| B | `/b/` | CSS/SVG motion only, no WebGL |
+| D | `/d/` | Adaptive: 3D on a fast connection and capable device, B scenes on a slow one; `?mode=lite` / `?mode=3d` override; falls back to lite if Three.js does not load within 8 s |
+
+All three share one source (variant C) and the same content, CI tokens and RU strings.
+Language: `?lang=en` / `?lang=ru`; default from the visitor's browser language, remembered in localStorage.
+
+## SEO / GEO / AEO / LLM layer
+- `<title>`, meta description, canonical, hreflang en/ru/x-default, Open Graph + Twitter card, `og-image.png` 1200×630
+- One JSON-LD `@graph`: Organization, WebSite, WebPage (dateModified, speakable), Service with offer catalogue,
+  LocalBusiness ×2 (city only, no street address), FAQPage generated from the visible FAQ, HowTo, DefinedTermSet (GDP glossary)
+- Answer-first paragraph under the H1; FAQ questions as `<h3>` with the first one open; 10 answers of 40–62 words
+- `robots.txt` (AI crawlers listed explicitly), `sitemap.xml`, `llms.txt`, `llms-full.txt`, `site.webmanifest`
+- Claim rules: no superlatives, future facts carry «from launch» / «in preparation», no hub addresses, no founder or manufacturer names
+
+## Build (from the workspace folder, Python 3)
+```
+python build-seo.py                       # base-c.html -> site/index.html (+ site files)
+python build-b.py  site/index.html site/b/index.html kokzhol-b-animated.html chk-b.js
+python build-d.py  site/index.html site/d/index.html kokzhol-d-adaptive.html chk-d.js
+python seo-check.py site/index.html site/b/index.html site/d/index.html
+```
+Content lives in `seo_content.py` (EN/RU pairs). `base-c.html` is the pre-SEO variant C page.

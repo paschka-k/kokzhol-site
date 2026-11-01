@@ -1,0 +1,513 @@
+# Kökzhol — full text of the page (English), updated 2026-11-01
+
+Canonical: https://kokzhol.kz/
+
+
+# Cold chain, on schedule.
+
+Холодовая цепь точно по графику. · Суық тізбек — кестемен.
+97 degrees lie between a January morning and a July afternoon on our routes. Lab diagnostics, medical devices and pharmaceuticals move between two hubs and 21 cities on fixed route rings, with a temperature record for every box.
+Kökzhol (Көкжол) is a temperature-controlled logistics network for pharmaceuticals, laboratory diagnostics and medical devices in Kazakhstan. It runs two hubs in Astana and Almaty, serves 21 cities on four fixed route rings, carries three temperature classes with a data logger in every box, and is set up to EU and EAEU good distribution practice (GDP). The backbone starts on 15 December 2026.
+
+## Express is the exception. Today it is the plan.
+
+In medical supply chains across Kazakhstan, a large share of the transport budget goes on express shipments that carry only a small share of the weight. Each one is booked by phone, packed by hand and tracked by hope. Kökzhol makes the scheduled cold chain the normal case.
+
+### Ad-hoc express
+
+Reagents leave when someone finds a courier. Temperature proof is a thermometer photo, if any. Two hubs often ship to the same city on the same day, separately.
+
+### A fixed day, one truck, one record
+
+Every city has a delivery day on its ring. Loads from both hubs are consolidated. One logger per box writes the record; the platform shows it before the box is opened.
+
+### Express only when it is really needed
+
+Routine replenishment moves on the timetable at a scheduled rate. Express stays available for the genuinely urgent case, with a clear reason attached.
+
+## Two hubs. Four rings. One weekly backbone.
+
+Astana and Almaty are the hubs. A weekly backbone of about 1,200 km links them. Four route rings leave the hubs on fixed loops and come back, so every city sees the same truck on the same day. Aktau, the furthest point, is 2,670 km from its hub.
+| Ring
+| From
+| Cities
+| Loop
+| Backbone
+| Astana ⇄ Almaty
+| Karaganda
+| ≈1,200 km · weekly
+| North
+| Astana
+| Kokshetau, Petropavl, Kostanay
+| 1,580 km
+| East
+| Astana
+| Pavlodar, Aksu, Semey, Oskemen
+| 1,950 km
+| South
+| Almaty
+| Taldykorgan, Taraz, Shymkent, Turkistan, Kyzylorda, Saryagash
+| 3,250 km
+| West
+| Astana
+| Aktobe, Khromtau, Uralsk, Atyrau, Aktau
+| 6,482 km · 11.4 driving days
+Fixed timetable and published departure days from launch
+Partners and carriers: the backbone and the West ring have backhaul capacity in the return direction. Talk to us about regular lanes.
+
+## At −45 °C the danger is frost, not heat.
+
+Kazakhstan has a dry continental climate with a 97-degree span. A reagent that freezes is a reagent that is lost, so in winter the ambient class (+15…+25 °C) travels heated, and +2…+8 °C goods are protected from frost first and from warmth second.
+Insulated bodies rated −70…+75 °C, passive thermo containers, winter mode on every ambient label: «heated». Blizzard buffers are built into the ring timetable.
+White bodies reflect the sun. Cold packs are conditioned per class, and loggers show the actual curve, not an assumption.
+
+## Three classes. One logger per box. Labels from the system.
+
+Reagents, calibrators, controls. Thermobox validated for two days; chilled intermediate storage at cross-docking.
+Plastic consumables, devices, most pharmaceuticals. Frost-sensitive in winter, so the label switches to «heated» from the first frost.
+Dry ice (UN 1845) with ADR-trained drivers. Scheduled regularly, not as an exception.
+One data logger per box.Every shipment gets its own temperature curve, from packing time to hand-over, downloadable per shipment ID.
+Labels printed by the system, never handwritten.Shipment ID, logger ID and packing time on every box, with the class range in large type and a Code 128 barcode.
+
+## Book a slot, watch the truck, download the curve.
+
+The website is the front door of the platform. Customers book online and see an indicative price before they confirm. Each hub runs goods receipt from the same system, so the record starts at the gate.
+
+### Online slot booking with an indicative price
+
+Pick the ring, the delivery day and the class. The price is shown before confirmation.
+
+### Live tracking
+
+Vehicle position and box status by shipment ID. Data hosted in Kazakhstan.
+
+### Temperature report per shipment
+
+The logger curve with the allowed band shaded, as a PDF with the delivery note.
+
+### Hub goods receipt
+
+Inbound list per hub, dock time slots, gate check with the actual temperature, logger hand-over and SSCC match against the advice.
+
+### How to book a lane in four steps
+
+- Choose the city, the temperature class and the volume per month in the enquiry form or, from launch, in the customer portal.
+- The platform routes the request to the Astana or Almaty hub and shows the ring, the next delivery day and an indicative price.
+- Confirm the slot. The system prints the labels with shipment ID, logger ID and the class range.
+- Follow the truck by shipment ID and download the temperature report after delivery.
+
+## Neutral, and open to the whole market.
+
+Kökzhol is an independent carrier. Laboratories, pharmacies, clinics, manufacturers and distributors share the same rings and the same temperature record.
+
+### Laboratories
+
+- Temperature proof per box
+- A fixed delivery day per city
+- Winter handling of ambient reagents
+- UN 3373 specimens on the return leg
+
+### Pharmacies and clinics
+
+- Indicative price before booking
+- Online slot booking
+- Delivery day known in advance
+
+### Manufacturers and distributors
+
+- GDP framework (EAEU and KZ)
+- Coverage of 21 cities from two hubs
+- Data and reports per shipment
+- Neutral towards your customers
+
+### Partners and carriers
+
+- Backhaul capacity on the backbone and West ring
+- Regional expansion from 2028
+- Regular lanes, not spot loads
+
+### Medical device suppliers
+
+- Ambient class with heated winter mode
+- Consolidated, scheduled replenishment
+- Hub storage with 24/7 monitoring (in preparation)
+
+### Hospitals and diagnostic centres
+
+- Frozen class on a regular schedule
+- Dry ice handled by ADR-trained drivers
+- Gate check with actual temperature on arrival
+
+## Every temperature-led product group, on the same rings.
+
+Kökzhol moves medicines, biologics, diagnostics, devices and the materials that pharmaceutical plants need, each in its temperature class and with its own record. Goods that need a licence or a special container are marked as in preparation.
+
+### Medicines, Rx and OTC
+
+Tablets, capsules, liquids and ointments move in the ambient class. In winter the box is kept above freezing and the label says «heated».
+
+### Vaccines, sera and biologics
+
+Vaccines, immunoglobulins, insulin, GLP-1 and other proteins travel chilled with a logger that also shows freezing. Frozen vaccines use the −20 °C class.
+
+### Blood products and plasma
+
+Red cells chilled, platelets ambient, fresh frozen plasma and plasma derivatives in the frozen class. Transfusion-service lanes are set up per customer.
+
+### Cell and gene therapies, cryo material
+
+ATMPs, stem-cell products and cryopreserved samples ride on dry ice from launch. Liquid-nitrogen dry shippers below −150 °C are in preparation.
+
+### Radiopharmaceuticals and short-shelf-life products
+
+Isotopes and other products with a shelf life measured in hours need a fixed slot and a licensed carrier. Kökzhol plans these lanes after licensing.
+
+### Controlled medicines
+
+Sealed, counted, escorted and documented at every hand-over, under the Kazakh licensing rules for narcotic and psychotropic substances.
+
+### IVD reagents, calibrators and controls
+
+Reagent kits lose their value after one freeze. Chilled kits travel in validated thermoboxes, ambient kits in heated winter mode.
+
+### Patient specimens, UN 3373
+
+Blood, swabs and tissue as Biological Substance, Category B in triple packaging, collected on the same ring that delivered the reagents.
+
+### Medical devices, implants and sterile goods
+
+Devices and sterile packs must stay dry and intact. The sterile barrier and the packaging are checked at goods receipt.
+
+### Laboratory consumables and plastics
+
+Tubes, tips and plates crack after a frost cycle. One heated box on a scheduled ring replaces the express parcel.
+
+### APIs, excipients, intermediates and bulk
+
+Active ingredients, excipients and bulk product for production plants, with batch segregation and a temperature record per pallet. Bonded storage at the hub is in preparation.
+
+### Clinical nutrition, veterinary and cosmetic products
+
+Products that are not medicines but carry the same storage conditions use the same classes and the same record.
+
+## What good distribution practice means on the road.
+
+Good distribution practice (GDP) is the set of rules that keeps medicines within their licensed storage conditions and inside a documented chain of custody from the manufacturer to the pharmacy, hospital or laboratory. In the EU it is laid down in guideline 2013/C 343/01, in the Eurasian Economic Union in EEC Council Decision No. 80 of 3 November 2016, and the WHO describes it in Technical Report Series 961, Annex 9. Kökzhol applies these rules to every class and lane and will have them audited before any certification is claimed.
+
+### Kökzhol key facts
+
+| Fact
+| Value
+| Hubs
+| 2 · Astana and Almaty
+| Cities served
+| 21
+| Route rings
+| 4 (North, East, South, West) + weekly backbone Astana ⇄ Almaty via Karaganda
+| Backbone length
+| ≈1,200 km
+| Longest ring
+| West ring, 6,482 km; Aktau at 2,670 km from the hub
+| Temperature classes
+| +2…+8 °C chilled · +15…+25 °C ambient, heated in winter · −20 °C frozen
+| Route climate
+| −45 °C to +52 °C; 97 degrees between a January morning and a July afternoon
+| Monitoring
+| One data logger per box (from launch); EN 12830 recorder per vehicle (in preparation)
+| Standards
+| EU GDP 2013/C 343/01 · EAEU GDP, EEC Decision 80/2016 · Kazakh MoH rules · WHO TRS 961 Annex 9 · EN 12830 — all in preparation
+| Backbone start
+| 15 December 2026
+| Languages
+| English and Russian; Kazakh after native-speaker review
+
+### GDP topics, class by class
+
+
+### Temperature classes and mean kinetic temperature
+
+Each class has an allowed band and a validated packaging. For excursions the mean kinetic temperature (MKT) over the trip is calculated from the logger curve, so a release decision rests on numbers, not on a feeling.
+
+### Excursion handling
+
+A reading outside the band stops the hand-over. The box goes into quarantine at the hub, the owner (and, for trials, the sponsor) receives the curve, and the goods are released or rejected only on the owner's written decision. Every case becomes a deviation record.
+
+### Qualification and mapping
+
+Hubs and vehicles are temperature-mapped in summer and winter (WHO TRS 961), thermoboxes are tested over the longest ring in both seasons, and lanes are qualified before the first customer box travels on them.
+
+### Loggers and calibration
+
+One logger per box, read at the gate and at delivery; an EN 12830 recorder per vehicle; sensors calibrated yearly against ISO 17025 references, with certificates available to customers on request.
+
+### Responsible Person and training
+
+A named Responsible Person owns the quality system, releases procedures and signs off deviations. Drivers and hub staff are trained on GDP, on the three classes and on ADR before their first shift, and re-trained yearly.
+
+### Deviations, CAPA and change control
+
+Every deviation gets a root-cause analysis and a corrective and preventive action with an owner and a date. Changes to routes, packaging or systems go through change control, so the evidence pack stays consistent for audits.
+
+### Quarantine, returns and falsified medicines
+
+Returned goods stay in quarantine until the owner decides. Nothing is re-shipped without a temperature record. Serialised packs are checked for tampering at goods receipt, and suspected falsified medicines are reported to the owner and the authority.
+
+### Documentation and data integrity
+
+Records follow ALCOA+: attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring and available. Labels are printed by the system, never handwritten, and the shipment ID links booking, logger, gate check and report.
+
+### GDP for active substances
+
+Active ingredients and excipients travel under the EU principles for the distribution of active substances (2015/C 95/01): batch segregation, sealed containers, chain of custody and temperature records per pallet, so the manufacturer's GMP file stays complete.
+
+### GDP glossary
+
+- GDP
+  Good distribution practice: the quality rules for storing and transporting medicines so that their quality and traceability are preserved.
+- Cold chain
+  An unbroken sequence of storage and transport steps within a defined temperature band, each step with a record.
+- Temperature excursion
+  Any period in which a reading leaves the allowed band of the class; it triggers quarantine and a deviation record.
+- Mean kinetic temperature (MKT)
+  A single calculated temperature that expresses the total thermal stress of a trip, used to judge an excursion.
+- Data logger
+  A calibrated recorder placed in the box that stores the temperature curve from packing to hand-over.
+- Thermobox
+  An insulated box with conditioned packs, validated to hold its class for a defined time over the longest ring.
+- Qualification
+  Documented proof that a hub, vehicle, box or lane performs as required in summer and winter conditions.
+- Temperature mapping
+  A study with many sensors that finds the warmest and coldest points of a room or vehicle before monitoring sensors are placed.
+- Responsible Person
+  The named person who owns the GDP quality system, releases procedures and signs off deviations.
+- CAPA
+  Corrective and preventive action: the documented fix for a deviation and the measure that stops it recurring.
+- Chain of custody
+  The time-stamped record of who held a shipment at each step, from packing to signature at delivery.
+- UN 3373
+  Biological Substance, Category B: the dangerous-goods classification for patient specimens, shipped in triple packaging.
+- SSCC
+  Serial Shipping Container Code: the 18-digit number on the logistics label that is scanned at every hand-over.
+
+### Sources
+
+- EU Guidelines on Good Distribution Practice of medicinal products for human use, 2013/C 343/01
+- EU Principles of GDP for active substances, 2015/C 95/01
+- EEC Council Decision No. 80 of 3 November 2016, Rules of good distribution practice in the EAEU
+- WHO Technical Report Series 961, Annex 9: model guidance for the storage and transport of time- and temperature-sensitive pharmaceutical products
+- EN 12830: temperature recorders for the transport, storage and distribution of temperature-sensitive goods
+
+## Built for the sponsor's audit, not only for the delivery.
+
+Investigational medicinal products (IMPs), comparators, kits and patient samples follow GMP Annex 13, ICH E6(R3) good clinical practice and the sponsor's own procedures. The table lists what sponsors and CROs ask for and how Kökzhol answers each point. The badges say what applies from launch and what is still in preparation.
+| Sponsor requirement
+| How Kökzhol meets it
+| Status
+| Temperature record per kit, not per truck
+| One logger per box; the curve is attached to the proof of delivery and downloadable by shipment ID.
+| from launch
+| Blinding preserved
+| Boxes and documents show kit numbers only; no product names on labels or in the portal views that sites see.
+| from launch
+| Chain of custody with time stamps
+| Each hand-over (hub gate, driver, site) is scanned against the SSCC; the timeline is part of the shipment record.
+| from launch
+| Drug accountability and reconciliation
+| Shipped, received and returned units are reconciled per kit number; the report matches the sponsor's accountability log.
+| in preparation
+| Returns and destruction
+| Unused and returned IMPs go back under the same classes and quarantine rules; destruction only with a signed certificate per kit.
+| in preparation
+| Depot and site-to-site transfers
+| Hub storage per class with 24/7 monitoring, re-labelling under sponsor instruction, transfers between sites on the fixed rings.
+| in preparation
+| Direct-to-patient delivery
+| Home delivery of IMPs with identity check and temperature record, on request of the sponsor and the site.
+| in preparation
+| Biological sample return
+| Ambient, chilled or frozen samples as UN 3373 Category B, collected on the ring that delivered the kits, with the same record.
+| from launch
+| Deviation reporting to the sponsor
+| Every excursion or delay is reported with the curve before the goods are released; the deviation record follows CAPA.
+| from launch
+| Audit readiness
+| Procedures, training records, mapping and calibration files are kept for sponsor and authority audits. Audits are welcome before the first shipment.
+| in preparation
+| Import, customs and permits
+| Support with import licences and customs documents for IMPs and comparators entering Kazakhstan, with partner brokers.
+| in preparation
+| Data integrity
+| ALCOA+ records, system-printed labels, no manual edits to logger data; exports for the sponsor's trial master file.
+| from launch
+
+## The same rings, four different jobs.
+
+Diagnostics, pharmacy supply, production plants and bulk flows each have their own rhythm. Here is what moves, what matters and what Kökzhol provides for each.
+
+### How does Kökzhol serve diagnostic laboratories?
+
+Laboratories receive reagents on a fixed day and send specimens back on the same ring, with a temperature record in both directions.
+
+#### What moves
+
+- Reagent kits, calibrators and controls
+- Plastics and consumables
+- Patient specimens, UN 3373
+- Point-of-care devices and analysers
+
+#### What Kökzhol provides
+
+- Pre-analytical stability respected: chilled or frozen return leg
+- Heated winter mode for ambient kits
+- Gate check with the actual temperature on arrival
+- One delivery day per city, published at launch
+
+### How does Kökzhol supply pharmacies and hospitals?
+
+Pharmacy and hospital lanes run from wholesaler to shelf: scheduled replenishment, chilled goods fridge-to-fridge, returns under quarantine.
+
+#### What moves
+
+- Rx and OTC medicines
+- Chilled biologics and insulin
+- Hospital devices and sterile goods
+- Controlled medicines (in preparation)
+
+#### What Kökzhol provides
+
+- Fixed delivery days with cut-off times, published at launch
+- Indicative price per box before booking
+- Proof of delivery with the temperature curve
+- Returns collected on the next loop
+
+### How does Kökzhol feed pharmaceutical production plants?
+
+Inbound lanes bring APIs, excipients, packaging components and bulk product to the plant gate, batch-separated and documented for the GMP file.
+
+#### What moves
+
+- Active ingredients and excipients
+- Intermediates and bulk product
+- Primary and secondary packaging components
+- Reference standards and QC materials
+
+#### What Kökzhol provides
+
+- Pallet classes with a logger per pallet
+- Batch segregation and sealed containers
+- Dock slot booking at the plant's goods receipt
+- Bonded and customs-cleared storage at the hub (in preparation)
+
+### How does Kökzhol move bulk and finished goods between sites?
+
+Outbound and inter-site flows take finished goods to distributors and bulk between manufacturing, packaging and QC sites, on the same rings and under the same records.
+
+#### What moves
+
+- Finished goods to distributors and pharmacies
+- Bulk between manufacturing and packaging sites
+- Samples to QC and stability laboratories
+- Clinical supplies to depots
+
+#### What Kökzhol provides
+
+- Backbone and ring capacity on a timetable
+- A neutral carrier between competing owners
+- GDP evidence pack for partner authorities (in preparation)
+- Lanes to Tashkent and Bishkek from 2028
+
+## German-Kazakh know-how, built for the steppe.
+
+The network was planned with German logistics professionals in a 150-question feasibility study, and it is being set up to European good distribution practice from day one.
+
+### EU GDP rules and standards
+
+Processes, documentation and training follow EU Good Distribution Practice, mapped to EAEU and Kazakh requirements. in preparation
+
+### Experience from German professionals
+
+Route design, cold-chain engineering and the hub processes draw on hands-on experience from German pharma and lab logistics.
+
+### Consulting and strategic investment from German partners
+
+German partners support Kökzhol with consulting and strategic investment, so the network is funded to run on a timetable, not on spot demand.
+
+### Parallel experience across temperature-led logistics
+
+The team's background covers food, dangerous goods, the beauty sector and flowers, where temperature, timing and documentation decide whether the goods arrive usable.
+
+## From the backbone to the region.
+
+
+### Backbone start
+
+First weekly loop Astana ⇄ Almaty via Karaganda, with the three classes and one logger per box.
+
+### All of Kazakhstan
+
+North, East, South and West rings in operation; 21 cities served from the two hubs.
+
+### Uzbekistan and Kyrgyzstan
+
+Southern extension to Tashkent and Bishkek on the South ring, with the same classes and the same records.
+
+### The wider region
+
+Lanes into neighbouring markets as partner demand and GDP certification allow.
+
+## Built to the rules that labs are audited against.
+
+Nothing below is claimed as certified yet. Each item is in preparation and will be marked as live on this page once the audit or calibration is done.
+- EAEU GDP (EEC Decision 80/2016)in preparationGood distribution practice of the Eurasian Economic Union, applied to both hubs and all rings.
+- Kazakh Ministry of Health GDP rulesin preparationNational distribution rules for medicines and medical devices.
+- EN 12830 temperature recordersin preparationA legally recognised recorder in every truck, plus sensors per chamber.
+- WHO TRS 961 temperature mappingin preparationSummer and winter mapping of hubs and vehicles; sensors calibrated yearly to ISO 17025.
+- EU GDP as the working standardin preparationProcedures and training follow EU GDP, so the same evidence pack serves EAEU, KZ and European partners.
+- Dangerous goodsin preparationDry ice UN 1845 and diagnostic specimens UN 3373 handled by ADR-trained drivers.
+
+## Questions labs, pharmacies and sponsors ask first.
+
+
+### How does Kökzhol prove the temperature of each box?
+
+Every thermobox carries its own data logger from packing to hand-over. The curve is read at the hub gate and at delivery, compared with the allowed band for the class, and attached to the delivery note as a temperature report. Customers download it by shipment ID from the platform. This applies from launch.
+
+### Why are +15…+25 °C goods heated in winter?
+
+At −45 °C the risk for ambient goods is freezing, not warming. Plastic consumables and many reagents are destroyed by a single frost cycle. In winter mode the ambient class travels in insulated bodies with conditioned packs, and every ambient label switches to «heated» so nobody mistakes the box for a chilled one.
+
+### Which cities does Kökzhol deliver to, and how often?
+
+Twenty-one cities from the hubs in Astana and Almaty, on four route rings plus a weekly backbone between the two hubs. Each city has a fixed delivery day on its ring. The West ring, the longest at 6,482 km, reaches Aktau at 2,670 km from the hub. The timetable is published at launch on 15 December 2026.
+
+### Can a lab book a shipment online and see the price first?
+
+Yes, from launch. The customer portal shows the ring, the next delivery day and an indicative price for the chosen temperature class and volume before the slot is confirmed. Bookings route to the Astana or Almaty hub automatically, and tracking and the temperature report follow the same shipment ID.
+
+### Is Kökzhol open to companies that compete with each other?
+
+Yes. Kökzhol is a neutral carrier. Laboratories, pharmacies, clinics, manufacturers and distributors, including direct competitors, use the same rings and get the same temperature record. Customer data is kept separate per account, and no manufacturer or customer name appears in another customer's documents.
+
+### What is GDP, and does Kökzhol hold a GDP certificate?
+
+GDP, good distribution practice, is the rule set that keeps medicines within their storage conditions and in documented custody from manufacturer to patient. Kökzhol builds its processes to EU GDP, EAEU GDP (EEC Decision 80/2016) and the Kazakh rules. No certificate is claimed yet; certification is in preparation and will be shown on this page once granted.
+
+### Can Kökzhol handle clinical trial shipments for a sponsor or CRO?
+
+Yes, from launch for the core: one logger per kit, blinded labels, chain of custody with scans at every hand-over, sample return as UN 3373 and deviation reports with the curve. Depot storage, accountability reconciliation, destruction certificates and direct-to-patient delivery are in preparation and follow the sponsor's procedures.
+
+### What happens when a temperature excursion is detected?
+
+The hand-over stops. The box is quarantined at the hub, the owner receives the logger curve and the mean kinetic temperature, and the goods move on only after the owner's written release or rejection. Every excursion becomes a deviation record with a root cause and a corrective action.
+
+### Does Kökzhol deliver active ingredients and bulk to production plants?
+
+Yes. APIs, excipients, intermediates, bulk product and packaging components travel on pallet lanes with a logger per pallet, batch segregation and sealed containers, following the EU principles for active-substance distribution. Dock slots at the plant are booked in the platform. Bonded storage at the hub is in preparation.
+
+### Which temperatures below −20 °C can Kökzhol provide?
+
+The frozen class runs at −20 °C on dry ice from launch. Shipments at −70 °C use dry ice with replenishment at the hub, and cryogenic material below −150 °C uses liquid-nitrogen dry shippers. Both are in preparation and are booked per lane, not as spot requests.
+
+## Request a lane. Become a partner.
+
+Tell us the city, the class and the monthly volume. Your enquiry is routed to the hub that serves your ring, and that hub replies with the delivery day and an indicative rate.

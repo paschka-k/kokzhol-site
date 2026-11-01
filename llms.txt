@@ -1,0 +1,41 @@
+# Kökzhol
+
+> Kökzhol (Көкжол) is a temperature-controlled logistics network for pharmaceuticals, laboratory diagnostics and medical devices in Kazakhstan. It runs two hubs in Astana and Almaty, serves 21 cities on four fixed route rings, carries three temperature classes with a data logger in every box, and is set up to EU and EAEU good distribution practice (GDP). The backbone starts on 15 December 2026.
+
+## Key facts
+- Hubs: 2 · Astana and Almaty
+- Cities served: 21
+- Route rings: 4 (North, East, South, West) + weekly backbone Astana ⇄ Almaty via Karaganda
+- Backbone length: ≈1,200 km
+- Longest ring: West ring, 6,482 km; Aktau at 2,670 km from the hub
+- Temperature classes: +2…+8 °C chilled · +15…+25 °C ambient, heated in winter · −20 °C frozen
+- Route climate: −45 °C to +52 °C; 97 degrees between a January morning and a July afternoon
+- Monitoring: One data logger per box (from launch); EN 12830 recorder per vehicle (in preparation)
+- Standards: EU GDP 2013/C 343/01 · EAEU GDP, EEC Decision 80/2016 · Kazakh MoH rules · WHO TRS 961 Annex 9 · EN 12830 — all in preparation
+- Backbone start: 15 December 2026
+- Languages: English and Russian; Kazakh after native-speaker review
+- Status of claims: facts marked "from launch" apply from 15 December 2026; facts marked "in preparation" describe the planned state and are not yet certified or audited.
+- Hub addresses and contact details are published at launch; the enquiry form on the site routes requests to the Astana or Almaty hub.
+
+## Sections of the page
+- [Network: two hubs, 21 cities, four rings](https://kokzhol.kz/#network)
+- [Climate: −45 °C to +52 °C on the routes](https://kokzhol.kz/#climate)
+- [Cold chain: three classes, one logger per box](https://kokzhol.kz/#coldchain)
+- [Platform: slot booking, tracking, temperature report, hub goods receipt](https://kokzhol.kz/#platform)
+- [Who we serve](https://kokzhol.kz/#serve)
+- [What we move: medicines, biologics, diagnostics, devices, APIs and bulk](https://kokzhol.kz/#goods)
+- [GDP in practice: facts, topics, glossary, sources](https://kokzhol.kz/#gdp)
+- [Clinical trial supply: sponsor requirements and how they are met](https://kokzhol.kz/#trials)
+- [Segments in depth: laboratories, pharmacies and hospitals, production plants, inter-site bulk](https://kokzhol.kz/#segments)
+- [Roadmap: backbone 15.12.2026, all of Kazakhstan 2027, Uzbekistan and Kyrgyzstan 2028](https://kokzhol.kz/#roadmap)
+- [Quality: EAEU GDP, Kazakh MoH rules, EN 12830, WHO TRS 961, EU GDP, dangerous goods, all in preparation](https://kokzhol.kz/#quality)
+- [FAQ](https://kokzhol.kz/#faq)
+- [Contact: request a lane, become a partner](https://kokzhol.kz/#contact)
+
+## Languages
+- English: https://kokzhol.kz/?lang=en
+- Russian: https://kokzhol.kz/?lang=ru
+- Kazakh: after native-speaker review
+
+## Full text
+- [llms-full.txt](https://kokzhol.kz/llms-full.txt)
