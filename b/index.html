@@ -283,7 +283,7 @@ footer .signoff{font-size:20px;font-weight:700;color:#fff}
 .rm .nb{transition:fill 1.2s ease,opacity 1.2s ease}
 .rm[data-stage="0"] .nbdot,.rm[data-stage="1"] .nbdot{opacity:0}
 .rm .halo{transition:opacity 1.2s ease}
-.rm:not([data-stage="3"]) .halo{opacity:0}
+.halo{opacity:0}.rm[data-stage="3"] .halo{opacity:1}
 /* split-flap departure board */
 .board{margin-top:16px;background:var(--ink);color:var(--on-ink);border-radius:var(--r-md);padding:14px 16px;font-family:var(--mono);font-size:12px;overflow-x:auto}
 .board .bh{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--on-ink-muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
