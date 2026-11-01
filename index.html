@@ -293,6 +293,8 @@ footer .bottom{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-b
 footer .signoff{font-size:20px;font-weight:700;color:#fff}
 
 /* seo/gdp layer */
+.hero h1 .alt{display:inline-block;color:var(--ice);transition:opacity .35s ease,transform .35s ease}
+.hero h1 .alt.out{opacity:0;transform:translateY(8px)}
 .hero .answer{font-size:14px;line-height:1.55;color:var(--on-ink-muted);max-width:66ch}
 h3.sub{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin:32px 0 12px}
 .goods .card h3{font-size:16px}
@@ -351,7 +353,7 @@ footer .updated{display:block;flex-basis:100%;font-size:12px;color:var(--on-ink-
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow" data-i18n="hero.eyebrow">Temperature-controlled logistics · Kazakhstan</span>
-      <h1 data-i18n="hero.h1">Cold chain, on schedule.</h1>
+      <h1 data-i18n="hero.h1">Cold chain, <span class="alt" id="alt-word">on schedule.</span></h1>
       <p class="hero-claim" data-i18n="hero.claim">Холодовая цепь точно по графику. · Суық тізбек — кестемен.</p>
       <p class="lede" data-i18n="hero.lede">97 degrees lie between a January morning and a July afternoon on our routes. Lab diagnostics, medical devices and pharmaceuticals move between two hubs and 21 cities on fixed route rings, with a temperature record for every box.</p>
       <p class="answer" data-i18n="hero.answer">Kökzhol (Көкжол) is a temperature-controlled logistics network for pharmaceuticals, laboratory diagnostics and medical devices in Kazakhstan. It runs two hubs in Astana and Almaty, serves 21 cities on four fixed route rings, carries three temperature classes with a data logger in every box, and is set up to EU and EAEU good distribution practice (GDP). The backbone starts on 15 December 2026.</p>
@@ -791,7 +793,7 @@ const cityLabel=c=>LANG==='ru'?c[5]:c[0];
 const RU={
 'meta.desc':'Kökzhol / Көкжол: температурная логистика для лабораторной диагностики, медицинских изделий и фармацевтики в Казахстане. Два хаба, 21 город, четыре кольцевых маршрута. Холодовая цепь точно по графику.',
 'nav.network':'Сеть','nav.cold':'Холодовая цепь','nav.platform':'Платформа','nav.roadmap':'Дорожная карта','nav.quality':'Качество','nav.cta':'Запросить маршрут',
-'hero.eyebrow':'Температурная логистика · Казахстан','hero.h1':'Холодовая цепь точно по графику.','hero.claim':'Cold chain, on schedule. · Суық тізбек — кестемен.',
+'hero.eyebrow':'Температурная логистика · Казахстан','hero.h1':'Холодовая цепь <span class="alt" id="alt-word">точно по графику.</span>','hero.claim':'Cold chain, on schedule. · Суық тізбек — кестемен.',
 'hero.lede':'Между январским утром и июльским днём на наших маршрутах 97 градусов. Лабораторная диагностика, медицинские изделия и фармацевтика движутся между двумя хабами и 21 городом по фиксированным кольцевым маршрутам, с температурной записью для каждого бокса.',
 'hero.cta1':'Запросить маршрут / Стать партнёром','hero.cta2':'Связаться с хабом Астана или Алматы','hero.launch':'Старт магистрали',
 'stat.hubs':'хаба: Астана, Алматы','stat.cities':'город обслуживания','stat.rings':'кольцевых маршрута + еженедельная магистраль','stat.climate':'зима / лето на маршруте',
@@ -1066,6 +1068,11 @@ document.getElementById('lane-form').addEventListener('submit',e=>{
   ?`<strong>Запрос подготовлен для ${hub}.</strong> ${form.company.value} · ${cityLabel(c)} · ${cls} · ${form.volume.value}.<br><span style="color:var(--ink-muted)">Демо-страница: почтовый ящик хаба ещё не подключён. До запуска отправьте те же данные в ${hub} через Telegram или WhatsApp.</span>`
   :`<strong>Enquiry prepared for the ${hub}.</strong> ${form.company.value} · ${cityLabel(c)} · ${cls} · ${form.volume.value}.<br><span style="color:var(--ink-muted)">Demo page: the hub mailbox is not connected yet. Until launch, send the same details to the ${hub} via Telegram or WhatsApp.</span>`;
 });
+
+/* ---------- hero claim: the continuation rotates; reduced motion keeps "on schedule." ---------- */
+const ALTS={en:['on schedule.','on quality.','on fixed price.'],ru:['точно по графику.','с гарантией качества.','по фиксированной цене.']};
+let altI=0;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(()=>{const el=document.getElementById('alt-word');if(!el||document.hidden)return;altI=(altI+1)%ALTS.en.length;el.classList.add('out');setTimeout(()=>{el.textContent=(ALTS[LANG]||ALTS.en)[altI];el.classList.remove('out');},380);},3400);}
 
 /* ---------- countdown to 15.12.2026 ---------- */
 function countdown(){const el=document.getElementById('countdown');const d=Math.ceil((new Date(2026,11,15)-new Date())/86400000);
