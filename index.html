@@ -71,14 +71,14 @@ section{padding-block:72px}
 .logo{display:flex;align-items:center;text-decoration:none}
 .logo img{height:30px;width:auto;display:block}
 .nav-links{display:none;gap:18px;margin-left:8px}
-.nav-links a{color:var(--on-ink-muted);text-decoration:none;font-size:14px;font-weight:500}
+.nav-links a{color:var(--on-ink-muted);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
 .nav-links a:hover{color:#fff}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
 .lang{display:flex;gap:2px;font-family:var(--mono);font-size:12px}
 .lang button{background:transparent;border:1px solid var(--ink-line-2);color:var(--on-ink-muted);padding:5px 8px;border-radius:var(--r-sm);font-family:inherit;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
-.nav .btn{padding:9px 14px;font-size:14px}
-@media (min-width:980px){.nav-links{display:flex}}
+.nav .btn{padding:9px 14px;font-size:14px;white-space:nowrap}
+@media (min-width:1080px){.nav-links{display:flex}}
 
 /* hero */
 .hero{padding-block:48px 56px;position:relative;overflow:hidden;background:var(--ink)}
@@ -896,7 +896,7 @@ function init3D(){
   const beam=new T.Mesh(new T.CylinderGeometry(0.02,0.07,tall,8,1,true),new T.MeshBasicMaterial({color,transparent:true,opacity:0.25}));beam.position.set(v.x,0.8+tall/2,v.z);s.add(beam);
   const l=new T.PointLight(color,0.9,2.6);l.position.set(v.x,1.2,v.z);s.add(l);});}
  function cityDots(s){const m=new T.MeshBasicMaterial({color:0xE3ECEF});CITIES.filter(c=>c[3]!=='HUB').forEach(c=>{const v=proj(c[1],c[2]);const d=new T.Mesh(new T.SphereGeometry(0.05,8,8),m);d.position.set(v.x,0.62,v.z);s.add(d);});}
- function camFor(o){const cam=new T.PerspectiveCamera(34,1,0.1,60);cam.position.set(0.6,7.2,7.4);cam.lookAt(0,0,-0.2);o.cam=cam;o.size();return cam;}
+ function camFor(o){const cam=new T.PerspectiveCamera(34,1,0.1,60);cam.position.set(0.6,8.0,8.2);cam.lookAt(0,0,-0.2);o.cam=cam;o.size();return cam;}
 
  /* --- network map with truck --- */
  (function(){
@@ -930,7 +930,7 @@ function init3D(){
    const colAttr=tr.geo.attributes.color;const c=unlit.clone().lerp(lit,nbMix);
    for(let i=0;i<tr.flag.length;i++){if(tr.flag[i]===2)colAttr.setXYZ(i,c.r,c.g,c.b);}colAttr.needsUpdate=true;
    halo.material.opacity+=(((st>=3)?0.35:0)-halo.material.opacity)*0.05;const sc=1+Math.sin(now/900)*0.03;halo.scale.set(sc,sc,sc);
-   cam.position.y+=((st>=2?8.6:7.2)-cam.position.y)*0.05;cam.position.z+=((st>=2?8.6:7.4)-cam.position.z)*0.05;cam.lookAt(0,0,st>=2?0.6:-0.2);};
+   cam.position.y+=((st>=2?9.2:8.0)-cam.position.y)*0.05;cam.position.z+=((st>=2?9.2:8.2)-cam.position.z)*0.05;cam.lookAt(0,0,st>=2?0.6:-0.2);};
  })();
 
  function loop(now){renderers.forEach(o=>{if(o.visible&&o.tick){o.tick(now);o.r.render(o.scene,o.cam);}});requestAnimationFrame(loop);}
