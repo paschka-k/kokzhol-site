@@ -174,12 +174,12 @@ section{padding-block:72px}
 .mock .bar img{height:16px;width:auto}
 .mock .bar .right{margin-left:auto;color:var(--on-ink-muted)}
 .mock .body{padding:14px;display:grid;gap:12px;grid-template-columns:1fr}
-@media (min-width:640px){.mock .body{grid-template-columns:1.3fr 1fr}}
+@media (min-width:760px){.mock .body{grid-template-columns:1.3fr 1fr}}
 .mock h4{margin:0 0 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);font-weight:500}
 .mock table{width:100%;border-collapse:collapse;font-size:12.5px}
 .mock td,.mock th{padding:7px 6px;border-bottom:1px solid var(--frost);text-align:left;vertical-align:middle}
 .mock th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-muted);font-weight:500}
-.mock .id{font-family:var(--mono)}
+.mock .id{font-family:var(--mono);white-space:nowrap}
 .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap}
 .pill.ok{background:var(--brand);color:#fff}
 .pill.wait{background:var(--frost);color:var(--ink)}
@@ -189,11 +189,11 @@ section{padding-block:72px}
 .slot.busy{background:var(--frost)}
 .slot.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
 .gate{border:1px solid var(--hairline);border-radius:var(--r-md);padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
-.gate .big{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--ink)}
+.gate .big{font-family:var(--mono);font-size:clamp(15px,1.9vw,21px);font-weight:500;color:var(--ink);overflow-wrap:anywhere}
 .gate .row{display:flex;justify-content:space-between;gap:8px;font-size:12.5px}
 .gate .row span:last-child{font-family:var(--mono);text-align:right}
 .check{color:var(--brand);font-weight:700}
-.mock .table-scroll{min-width:0}
+.mock .table-scroll{min-width:0;overflow-x:auto}
 
 /* serve */
 .serve .card h3{display:flex;align-items:center;gap:10px}
