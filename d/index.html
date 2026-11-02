@@ -455,6 +455,7 @@ html.motion .tscale-wrap.in .band text,html.motion .tscale-wrap.in .band circle{
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="../assets/kz-preview.css">
 </head>
 <body>
 
@@ -663,6 +664,7 @@ html.motion .tscale-wrap.in .band text,html.motion .tscale-wrap.in .band circle{
         <div class="f rv"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-6-5.4-6-10.5a6 6 0 0 1 12 0c0 5.1-6 10.5-6 10.5Z"/><circle cx="12" cy="10" r="2.2"/></svg><div><div class="top"><h3 data-i18n="pf.f2h">Live tracking</h3><span class="badge prep" data-i18n="badge.launch7">from launch</span></div><p data-i18n="pf.f2p">Vehicle position and box status by shipment ID. Data hosted in Kazakhstan.</p> <a class="sample" href="../track/" data-i18n="pf.track">Open the tracking page</a></div></div>
         <div class="f rv"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 19.5h17M4 15l4.5-4.5 3.5 3 7.5-7.5"/><path d="M15 6h4.5v4.5"/></svg><div><div class="top"><h3 data-i18n="pf.f3h">Temperature report per shipment</h3><span class="badge prep" data-i18n="badge.launch8">from launch</span></div><p data-i18n="pf.f3p">The logger curve with the allowed band shaded, as a PDF with the delivery note.</p> <a class="sample" href="../assets/temp-report-sample.pdf" data-i18n="pf.sample">Example report (PDF, validation run)</a></div></div>
         <div class="f rv"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2.5M19.5 14v2.5M14 17.5V20h2.5M18 20h2"/></svg><div><div class="top"><h3 data-i18n="pf.f4h">Hub goods receipt</h3><span class="badge prep" data-i18n="badge.launch9">from launch</span></div><p data-i18n="pf.f4p">Inbound list per hub, dock time slots, gate check with the actual temperature, logger hand-over and SSCC match against the advice.</p></div></div>
+        <div class="pv-cta rv"><p data-pv-note></p><button type="button" class="btn btn-secondary" data-pv-open aria-haspopup="dialog">Preview customer view</button></div>
       </div>
       <div class="mock" aria-label="Demo of the hub goods receipt screen">
         <div class="bar"><img src="../assets/brand/mark-reverse.svg" alt="" width="13" height="16"><span data-i18n="mock.title">Goods receipt · Hub AST</span><span class="right" data-i18n="mock.demo">demo · from launch</span></div>
@@ -1809,5 +1811,6 @@ if(LITE)startLite();
  addEventListener('scroll',()=>requestAnimationFrame(sweep),{passive:true});addEventListener('hashchange',()=>setTimeout(sweep,60));setTimeout(sweep,300);
 })();
 </script>
+<script src="../assets/kz-preview.js" defer></script>
 </body>
 </html>
