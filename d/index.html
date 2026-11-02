@@ -1805,7 +1805,8 @@ if(LITE)startLite();
  document.documentElement.classList.add('motion');
  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
- setTimeout(()=>document.querySelectorAll('.rv:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in');}),300);
+ function sweep(){const y=innerHeight;document.querySelectorAll('.rv:not(.in)').forEach(el=>{if(el.getBoundingClientRect().top<y)el.classList.add('in');});}
+ addEventListener('scroll',()=>requestAnimationFrame(sweep),{passive:true});addEventListener('hashchange',()=>setTimeout(sweep,60));setTimeout(sweep,300);
 })();
 </script>
 </body>
