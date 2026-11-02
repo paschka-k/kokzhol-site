@@ -1,4 +1,4 @@
-# Kökzhol — full text of the page (English), updated 2026-11-01
+# Kökzhol — full text of the page (English), updated 2026-11-02
 
 Canonical: https://kokzhol.kz/
 
@@ -95,6 +95,7 @@ Inbound list per hub, dock time slots, gate check with the actual temperature, l
 - The platform routes the request to the Astana or Almaty hub and shows the ring, the next delivery day and an indicative price.
 - Confirm the slot. The system prints the labels with shipment ID, logger ID and the class range.
 - Follow the truck by shipment ID and download the temperature report after delivery.
+A hub replies within one working day. Valid from launch; until then the form prepares the message for Telegram or WhatsApp.
 
 ## Neutral, and open to the whole market.
 
@@ -189,6 +190,45 @@ Active ingredients, excipients and bulk product for production plants, with batc
 ### Clinical nutrition, veterinary and cosmetic products
 
 Products that are not medicines but carry the same storage conditions use the same classes and the same record.
+
+## Six classes, one label, one record format.
+
+The class printed on the label is the band shaded in the temperature report. Three classes run from launch; three more are booked per lane and marked in preparation until their packaging is qualified.
+| Class
+| Band
+| What moves in it
+| Box and medium
+| Status
+| Ambient
+| +15…+25 °C
+| Tablets, capsules, liquid forms, most devices and ambient reagents
+| Insulated box; heated compartment when the outside air is below 0 °C
+| from launch
+| Chilled
+| +2…+8 °C
+| Vaccines, insulins, biologics, IVD reagents, calibrators, blood products
+| Qualified cold box with pre-conditioned coolant packs; one logger per box
+| from launch
+| Frozen
+| −20 °C
+| Frozen reagents, plasma derivatives, some biologics and controls
+| Insulated shipper with dry ice (UN 1845); dry-ice weight on the label
+| from launch
+| Deep-frozen
+| −70 °C
+| mRNA products, frozen specimens, cell-based assay material
+| Dry-ice shipper with replenishment at the hub; hold time published after qualification
+| in preparation
+| Cryogenic
+| below −150 °C
+| Cell and gene therapies, cell lines, cryopreserved samples
+| Liquid-nitrogen dry shipper, charged at the hub
+| in preparation
+| Cool
+| +8…+15 °C
+| The small group of medicines labelled «store in a cool place»
+| Chilled box with a wider band, booked per lane
+| in preparation
 
 ## What good distribution practice means on the road.
 
@@ -339,6 +379,7 @@ Investigational medicinal products (IMPs), comparators, kits and patient samples
 | Data integrity
 | ALCOA+ records, system-printed labels, no manual edits to logger data; exports for the sponsor's trial master file.
 | from launch
+For sponsors and CROs: the FAQ answers how kits are received, transferred blinded, how samples reach the central laboratory, which documents each shipment carries and what happens to returns.
 
 ## The same rings, four different jobs.
 
@@ -465,6 +506,37 @@ Nothing below is claimed as certified yet. Each item is in preparation and will 
 - EU GDP as the working standardin preparationProcedures and training follow EU GDP, so the same evidence pack serves EAEU, KZ and European partners.
 - Dangerous goodsin preparationDry ice UN 1845 and diagnostic specimens UN 3373 handled by ADR-trained drivers.
 
+### Certificates and documents
+
+Each document is listed with its status. When one is granted, its number, issuing body, validity date and scan replace the status line.
+| Document
+| Status
+| What will be shown
+| GDP certificate, Kazakh Ministry of Health
+| in preparation
+| Number, issuing body, validity date and scan
+| Licence for pharmaceutical activity: wholesale distribution with storage and transport
+| in preparation
+| Licence number and link to the state register
+| Vehicle and hub qualification reports, summer and winter (WHO TRS 961)
+| in preparation
+| Report IDs and dates per vehicle class and hub
+| Sensor calibration certificates, ISO 17025, renewed yearly
+| in preparation
+| Certificate IDs per logger batch
+| EN 12830 recorder conformity
+| in preparation
+| Declarations per recorder model
+| Cargo insurance policy
+| in preparation
+| Insurer and cover basis per shipment class
+
+### Kazakh rules the documents are audited against
+
+- Order of the Minister of Health № ҚР ДСМ-15 of 4 February 2021: good pharmaceutical practices, including GDP
+- Order of the Minister of Health № ҚР ДСМ-19 of 16 February 2021: rules for storage and transport of medicines and medical devices
+- EEC Decision № 80 of 3 November 2016: EAEU good distribution practice
+
 ## Questions labs, pharmacies and sponsors ask first.
 
 
@@ -507,6 +579,26 @@ Yes. APIs, excipients, intermediates, bulk product and packaging components trav
 ### Which temperatures below −20 °C can Kökzhol provide?
 
 The frozen class runs at −20 °C on dry ice from launch. Shipments at −70 °C use dry ice with replenishment at the hub, and cryogenic material below −150 °C uses liquid-nitrogen dry shippers. Both are in preparation and are booked per lane, not as spot requests.
+
+### How does Kökzhol receive and store investigational medicinal products (IMP)?
+
+IMP arrives at the Astana or Almaty hub with a dock slot booked by the sponsor or depot. Goods receipt records the actual temperature, the logger ID and the kit count against the shipping list. From launch kits move on within 24 hours; quarantine and longer depot storage per protocol are in preparation.
+
+### Can Kökzhol transfer trial kits between sites without breaking the blind?
+
+Yes. Site-to-site transfers run on the rings with blinded labels, kit numbers only and no product names on the outer box. Each hand-over is scanned, the logger stays with the kit, and the sponsor receives the chain-of-custody record and the curve. The receiving site confirms the count in the platform.
+
+### How are patient samples collected from sites and delivered to a central laboratory?
+
+Samples are packed at the site as UN 3373 Category B in a qualified box with coolant packs or dry ice and a logger. The ring collects them on the fixed day, the hub consolidates them, and the backbone takes them to the laboratory or the airport. Transit times per city are published at launch.
+
+### Which documents does a sponsor receive for each clinical shipment?
+
+Every shipment comes with a delivery note, the chain-of-custody record with time-stamped scans at each hand-over, the temperature report with the allowed band shaded, and a deviation report if an excursion occurred. Documents are PDF files in the platform, kept for the retention period the sponsor's contract sets.
+
+### What happens to unused or returned trial kits?
+
+Returned kits travel back to the hub on the next loop, sealed and logged like outbound goods. The hub counts them against the dispatch record and holds them in a marked return zone until the sponsor's monitor reconciles them. Documented destruction with a certificate is in preparation and follows the sponsor's procedure.
 
 ## Request a lane. Become a partner.
 
