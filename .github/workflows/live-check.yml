@@ -1,0 +1,24 @@
+name: live-check
+# Weekly uptime, content and TLS-expiry check of the published site (P3 ops item from the competitor review).
+# Change SITE_URL to https://kokzhol.kz/ on domain day; a failure shows as a red run and an e-mail from GitHub.
+on:
+  schedule:
+    - cron: '20 6 * * 1'   # Mondays 06:20 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+env:
+  SITE_URL: https://paschka-k.github.io/kokzhol-site/
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Wait for Pages after a push
+        if: github.event_name == 'push'
+        run: sleep 90
+      - name: Live check
+        run: python tools/live-check.py "$SITE_URL"

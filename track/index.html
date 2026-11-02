@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shipment tracking · Kökzhol</title>
+<meta name="description" content="Enter the shipment ID from the label or the delivery note. From launch the page shows the current leg, the vehicle position on the ring and the live readin">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://kokzhol.kz/track/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--surface:#F5F8F9;--frost:#E3ECEF;--white:#FFFFFF;--hairline:#C9D6DC;--ink:#0B2230;--ink-muted:#4A6070;--ink-line:#1E3A48;--brand:#0E6E7E;--brand-dark:#0A5663;--ice:#7FD3DE;--gold:#C8963E;--on-ink:#E8F1F3;--on-ink-muted:#A9BFC7;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;--r-md:6px}
+*{box-sizing:border-box} html{color-scheme:light}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:Onest,system-ui,sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--ink);color:var(--on-ink)} header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+header img{height:28px;width:auto;display:block} header a{color:var(--on-ink-muted);text-decoration:none;font-size:14px}
+.lang button{background:none;border:1px solid var(--ink-line);color:var(--on-ink-muted);font:inherit;font-size:12px;padding:4px 8px;cursor:pointer;border-radius:var(--r-md)} .lang button[aria-pressed="true"]{color:#fff;border-color:var(--ice)}
+main .wrap{padding-block:40px 56px;display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+h1{font-size:clamp(28px,5vw,38px);line-height:1.1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.lede{color:var(--ink-muted);margin:0;max-width:66ch}
+form{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);padding:18px}
+label{display:flex;flex-direction:column;gap:6px;flex:1 1 260px;font-size:13px;color:var(--ink-muted)}
+input{font:inherit;font-family:var(--mono);font-size:15px;padding:10px 12px;border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--surface);color:var(--ink);min-width:0;width:100%}
+.btn{display:inline-flex;align-items:center;padding:11px 18px;border-radius:var(--r-md);font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;font-family:inherit;text-decoration:none}
+.btn-primary{background:var(--brand);color:#fff} .btn-primary:hover{background:var(--brand-dark)}
+.btn[disabled]{background:var(--frost);color:var(--ink-muted);cursor:not-allowed}
+.demo{font-size:13px;color:var(--ink-muted)} .demo button{background:none;border:0;padding:0;color:var(--brand);font:inherit;font-family:var(--mono);cursor:pointer;text-decoration:underline}
+.note{background:var(--white);border:1px solid var(--hairline);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:14px 16px;font-size:14px;color:var(--ink-muted)}
+.card{display:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-md);padding:20px;gap:14px;grid-template-columns:1fr 1fr}
+.card[data-show]{display:grid} .card>div{border-left:2px solid var(--frost);padding-left:10px}
+.card b{display:block;font-family:var(--mono);font-weight:500;font-size:14px} .card span{font-size:11px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em}
+.card .full{grid-column:1/-1;border:0;padding:0;font-size:12.5px;color:var(--ink-muted);font-family:var(--mono)} .card a{color:var(--brand)}
+.err{display:none;color:#B4442B;font-size:14px} .err[data-show]{display:block}
+.login{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--ink-muted)}
+footer{font-size:12px;color:var(--ink-muted);border-top:1px solid var(--hairline);padding-block:16px}
+@media (max-width:520px){.card{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="../" aria-label="Kökzhol home"><img src="../assets/brand/horizontal-latin-reverse.svg" alt="kökzhol" width="176" height="30"></a>
+<div style="display:flex;gap:14px;align-items:center"><a href="../" data-i18n="tk.back">Back to the main page</a><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button> <button type="button" data-lang="ru" aria-pressed="false">RU</button></div></div></div></header>
+<main><div class="wrap">
+<span class="eyebrow">Kökzhol · Tracking</span>
+<h1 data-i18n="tk.h1">Track a shipment</h1>
+<p class="lede" data-i18n="tk.lede">Enter the shipment ID from the label or the delivery note. From launch the page shows the current leg, the vehicle position on the ring and the live reading of the logger in the box; after delivery it links the temperature report.</p>
+<form id="track-form" novalidate>
+  <label><span data-i18n="tk.label">Shipment ID</span><input id="sid" name="id" placeholder="KZ-2026-1215-00731" autocomplete="off" spellcheck="false" required></label>
+  <button class="btn btn-primary" type="submit" data-i18n="tk.btn">Show</button>
+  <div class="demo" style="flex-basis:100%"><span data-i18n="tk.demo">Try the demo ID</span>: <button type="button" id="demo-btn">KZ-2026-1215-00731</button></div>
+</form>
+<p class="err" id="err" role="alert" data-i18n="tk.unknown">Unknown ID. Check the label or ask the hub that issued the booking.</p>
+<section class="card" id="card" aria-live="polite">
+  <div><span data-i18n="tk.s1">Leg</span><b data-i18n="tk.d1">Backbone · Almaty → Astana</b></div>
+  <div><span data-i18n="tk.s2">Position</span><b data-i18n="tk.d2">312 km from the Almaty hub · demo</b></div>
+  <div><span data-i18n="tk.s3">Logger</span><b data-i18n="tk.d3">KZL-T-004218 · +4.6&nbsp;°C</b></div>
+  <div><span data-i18n="tk.s4">Class / band</span><b data-i18n="tk.d4">Chilled · +2…+8&nbsp;°C</b></div>
+  <div><span data-i18n="tk.s5">Next hand-over</span><b data-i18n="tk.d5">Hub Astana · dock 2</b></div>
+  <div><span data-i18n="tk.s6">Report</span><b><a href="../assets/temp-report-sample.pdf" data-i18n="tk.d6">Example report (PDF)</a></b></div>
+  <div class="full" data-i18n="tk.demo_note">Demo shipment. Position and reading are static example values, not a live feed.</div>
+</section>
+<div class="note" data-i18n="tk.pre">The portal opens with the backbone on 15 December 2026. Until then this page accepts the demo ID only; the enquiry form on the main page reaches the hubs today.</div>
+<div class="login"><button class="btn" type="button" disabled data-i18n="tk.login">Customer login</button><span data-i18n="tk.loginnote">Opens at launch</span></div>
+</div></main>
+<footer><div class="wrap">ТОО «Көкжол» (placeholder) · kokzhol.kz · Page updated 2 November 2026</div></footer>
+<script>
+const RU={"tk.title": "Отслеживание отправления · Kökzhol", "tk.h1": "Отследить отправление", "tk.lede": "Введите ID отправления с этикетки или накладной. С запуска страница показывает текущее плечо, положение машины на кольце и текущее показание логгера в боксе; после доставки — ссылку на температурный отчёт.", "tk.label": "ID отправления", "tk.btn": "Показать", "tk.demo": "Попробуйте демо-ID", "tk.pre": "Портал открывается вместе с магистралью 15 декабря 2026 года. До этого страница принимает только демо-ID; форма запроса на главной странице уже сегодня доходит до хабов.", "tk.unknown": "Неизвестный ID. Проверьте этикетку или обратитесь в хаб, который оформил бронирование.", "tk.login": "Вход для заказчика", "tk.loginnote": "Откроется при запуске", "tk.s1": "Плечо", "tk.s2": "Положение", "tk.s3": "Логгер", "tk.s4": "Класс / диапазон", "tk.s5": "Следующая передача", "tk.s6": "Отчёт", "tk.d1": "Магистраль · Алматы → Астана", "tk.d2": "312 км от хаба Алматы · демо", "tk.d3": "KZL-T-004218 · +4,6 °C", "tk.d4": "Охлаждённый · +2…+8 °C", "tk.d5": "Хаб Астана · док 2", "tk.d6": "Пример отчёта (PDF)", "tk.demo_note": "Демо-отправление. Положение и показание — статичные примеры, не живой поток.", "tk.back": "На главную"};const ORIG={};let LANG='en';
+function applyLang(l){LANG=l;document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(!(k in ORIG))ORIG[k]=el.innerHTML;el.innerHTML=l==='ru'&&RU[k]!=null?RU[k].replace(/ °C/g,'&nbsp;°C'):ORIG[k];});document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));try{localStorage.setItem('kz-lang',l);}catch(e){}}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+(function(){let l='';try{l=new URLSearchParams(location.search).get('lang')||'';}catch(e){}if(l!=='en'&&l!=='ru'){try{l=localStorage.getItem('kz-lang')||'';}catch(e){}}if(l!=='en'&&l!=='ru'){l=(navigator.language||'').toLowerCase().startsWith('ru')?'ru':'en';}applyLang(l);})();
+const DEMO='KZ-2026-1215-00731';const f=document.getElementById('track-form'),inp=document.getElementById('sid'),card=document.getElementById('card'),err=document.getElementById('err');
+function show(id){id=(id||'').trim().toUpperCase();if(id===DEMO){card.setAttribute('data-show','');err.removeAttribute('data-show');}else{card.removeAttribute('data-show');if(id)err.setAttribute('data-show','');}}
+f.addEventListener('submit',e=>{e.preventDefault();show(inp.value);});
+document.getElementById('demo-btn').addEventListener('click',()=>{inp.value=DEMO;show(DEMO);});
+(function(){try{const q=new URLSearchParams(location.search).get('id');if(q){inp.value=q;show(q);}}catch(e){}})();
+</script>
+</body>
+</html>

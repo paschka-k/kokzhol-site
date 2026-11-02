@@ -55,6 +55,30 @@ Astana and Almaty are the hubs. A weekly backbone of about 1,200 km links them. 
 Fixed timetable and published departure days from launch
 Partners and carriers: the backbone and the West ring have backhaul capacity in the return direction. Talk to us about regular lanes.
 
+### Pricing basis
+
+No tariff is published before launch. What is fixed now is how a price is built, what it includes and what the word «fixed» means on this page.
+| Lane type
+| Priced per
+| Included
+| Charged separately
+| Ring delivery to one of the 21 cities
+| Box, by temperature class
+| Qualified box, coolant packs, one logger, hub goods receipt, temperature report, proof of delivery
+| Dry ice by weight, ADR surcharge, waiting at the consignee beyond the slot
+| Backbone Astana ⇄ Almaty
+| Box or pallet place
+| Pallet logger, hub-to-hub hand-over scans, temperature report
+| Last-mile delivery outside the hub city, customs formalities
+| Inbound to a production plant
+| Pallet, by class and dock slot
+| Batch segregation, sealed container, logger per pallet, GMP-file documents
+| Storage at the hub beyond 48 hours, bonded storage (in preparation)
+| Clinical shipment
+| Kit or box, per protocol
+| Blinded labelling, chain-of-custody record, deviation report, return leg on the next loop
+| Depot storage, destruction certificate, direct-to-patient (all in preparation)
+
 ## At −45 °C the danger is frost, not heat.
 
 Kazakhstan has a dry continental climate with a 97-degree span. A reagent that freezes is a reagent that is lost, so in winter the ambient class (+15…+25 °C) travels heated, and +2…+8 °C goods are protected from frost first and from warmth second.
@@ -230,6 +254,40 @@ The class printed on the label is the band shaded in the temperature report. Thr
 | Chilled box with a wider band, booked per lane
 | in preparation
 
+### Packaging catalogue
+
+Four box classes and one pallet shipper cover the six temperature classes. Hold times are published per box and season after qualification; until then the column shows the qualification status, not a number.
+| Box
+| Classes
+| Medium and pre-conditioning
+| Use
+| Qualified hold time
+| Box S, up to 10 L payload
+| +2…+8 · +15…+25
+| Coolant packs conditioned at the class temperature for 24 h before packing; ambient box carries a heating element below 0 °C outside
+| Reusable on the rings; returned to the hub on the next loop
+| after qualification
+| Box M, up to 30 L payload
+| +2…+8 · +15…+25 · +8…+15
+| Same packs; the +8…+15 °C configuration uses a wider band of conditioned packs
+| Reusable; pharmacy and laboratory lanes
+| after qualification
+| Box L, up to 60 L payload
+| +2…+8 · −20
+| Coolant packs or dry ice (UN 1845); dry-ice weight on the label, top-up at the Astana and Almaty hubs
+| Reusable on the rings; single-use shipper for air legs
+| after qualification
+| Deep-frozen shipper
+| −70
+| Dry ice, replenished at the hub; the logger sits in the payload space
+| Single-use or returned sealed; booked per lane
+| after qualification
+| Pallet shipper
+| +2…+8 · +15…+25
+| Pre-conditioned pallet cover with packs or an active container; one logger per pallet
+| Backbone and inbound plant lanes
+| after qualification
+
 ## What good distribution practice means on the road.
 
 Good distribution practice (GDP) is the set of rules that keeps medicines within their licensed storage conditions and inside a documented chain of custody from the manufacturer to the pharmacy, hospital or laboratory. In the EU it is laid down in guideline 2013/C 343/01, in the Eurasian Economic Union in EEC Council Decision No. 80 of 3 November 2016, and the WHO describes it in Technical Report Series 961, Annex 9. Kökzhol applies these rules to every class and lane and will have them audited before any certification is claimed.
@@ -260,6 +318,10 @@ Good distribution practice (GDP) is the set of rules that keeps medicines within
 | 15 December 2026
 | Languages
 | English and Russian; Kazakh after native-speaker review
+| Cargo insurance
+| Offered per shipment on the declared value from launch; insurer and cover basis published when the policy is signed
+| Operational figures
+| Boxes moved, lanes run, excursion rate and on-time share: published after the first full quarter of operation, with the measurement period
 
 ### GDP topics, class by class
 
@@ -337,6 +399,13 @@ Active ingredients and excipients travel under the EU principles for the distrib
 - WHO Technical Report Series 961, Annex 9: model guidance for the storage and transport of time- and temperature-sensitive pharmaceutical products
 - EN 12830: temperature recorders for the transport, storage and distribution of temperature-sensitive goods
 
+### Reverse flows: returns, recalls, quarantine, destruction
+
+- Returns ride the next loop in a sealed box with their own logger and are booked in at the hub as a return, never as stock.
+- A recall notice from the owner freezes every affected shipment ID in the platform; the hubs pull the boxes into the quarantine zone and report the count within one working day.
+- Quarantine is a marked, access-controlled area in each hub with its own temperature record; goods leave it only on the owner's written release or rejection.
+- Documented destruction through a licensed contractor with a certificate per batch is in preparation; until then rejected goods are returned to the owner.
+
 ## Built for the sponsor's audit, not only for the delivery.
 
 Investigational medicinal products (IMPs), comparators, kits and patient samples follow GMP Annex 13, ICH E6(R3) good clinical practice and the sponsor's own procedures. The table lists what sponsors and CROs ask for and how Kökzhol answers each point. The badges say what applies from launch and what is still in preparation.
@@ -403,6 +472,10 @@ Laboratories receive reagents on a fixed day and send specimens back on the same
 - Gate check with the actual temperature on arrival
 - One delivery day per city, published at launch
 
+### Can a laboratory in Shymkent get chilled reagents on a fixed weekday?
+
+Yes, from launch. Shymkent is on the South ring out of the Almaty hub, so it has one published delivery day per loop. Reagents travel in the +2…+8 °C class with a logger in the box, and the specimens for the return leg are collected on the same visit as UN 3373.
+
 ### How does Kökzhol supply pharmacies and hospitals?
 
 Pharmacy and hospital lanes run from wholesaler to shelf: scheduled replenishment, chilled goods fridge-to-fridge, returns under quarantine.
@@ -420,6 +493,10 @@ Pharmacy and hospital lanes run from wholesaler to shelf: scheduled replenishmen
 - Indicative price per box before booking
 - Proof of delivery with the temperature curve
 - Returns collected on the next loop
+
+### Can a pharmacy chain book replenishment for several branches in one order?
+
+Yes, from launch. One booking lists the branches, their cities and the class per box; the platform splits it by ring and delivery day and returns one indicative price per box. Each branch signs its own proof of delivery, and the chain receives one temperature report per box in the portal.
 
 ### How does Kökzhol feed pharmaceutical production plants?
 
@@ -439,6 +516,10 @@ Inbound lanes bring APIs, excipients, packaging components and bulk product to t
 - Dock slot booking at the plant's goods receipt
 - Bonded and customs-cleared storage at the hub (in preparation)
 
+### Can a plant reserve a dock slot for an inbound API pallet?
+
+Yes, from launch. The booking carries the plant's goods-receipt slot, and the hub plans the backbone or ring leg to arrive inside it. The pallet travels sealed with its own logger and batch papers, so the plant's quality unit can receive it into the GMP file without a second temperature check.
+
 ### How does Kökzhol move bulk and finished goods between sites?
 
 Outbound and inter-site flows take finished goods to distributors and bulk between manufacturing, packaging and QC sites, on the same rings and under the same records.
@@ -456,6 +537,13 @@ Outbound and inter-site flows take finished goods to distributors and bulk betwe
 - A neutral carrier between competing owners
 - GDP evidence pack for partner authorities (in preparation)
 - Lanes to Tashkent and Bishkek from 2028
+
+### Does Kökzhol carry bulk between two manufacturers that compete?
+
+Yes. Kökzhol is a neutral carrier: every owner sees only its own shipment IDs, records and reports in the platform, and hub staff work from the shipment ID, not from the brand. Bulk between manufacturing, packaging and QC sites moves on the same backbone and rings under the same records.
+
+### Lanes in practice
+
 
 ## German-Kazakh know-how, built for the steppe.
 
@@ -537,6 +625,64 @@ Each document is listed with its status. When one is granted, its number, issuin
 - Order of the Minister of Health № ҚР ДСМ-19 of 16 February 2021: rules for storage and transport of medicines and medical devices
 - EEC Decision № 80 of 3 November 2016: EAEU good distribution practice
 
+### Tender-readiness kit
+
+Documents that hospitals, the single distributor and regional health departments ask for in storage-and-transport lots. Each line shows whether Kökzhol can attach it today; the list is also available as a PDF checklist for procurement files.
+| Document
+| Status
+| Note
+| Licence for pharmaceutical activity: wholesale with storage and transport
+| in preparation
+| Application after hub qualification
+| GDP certificate or confirmation of a scheduled inspection
+| in preparation
+| Audit scheduled after the first winter qualification
+| Vehicle list with temperature qualification reports, summer and winter
+| in preparation
+| Per vehicle class and ring
+| Hub temperature mapping reports (WHO TRS 961)
+| in preparation
+| Astana and Almaty, both seasons
+| Logger and recorder calibration certificates, ISO 17025
+| in preparation
+| Per logger batch, renewed yearly
+| SOP index: receipt, storage, transport, excursions, recalls, returns, cleaning, training
+| in preparation
+| Index shared under NDA; SOPs shown at audit
+| ADR driver certificates (dry ice UN 1845, specimens UN 3373)
+| in preparation
+| Per driver, with validity dates
+| Cargo insurance policy
+| in preparation
+| Insurer and cover basis once signed
+| Company registration, tax registration, bank details
+| in preparation
+| Issued for ТОО «Көкжол» at incorporation
+| Reference list of lanes run, with measurement period
+| in preparation
+| After the first full quarter of operation
+Tender checklist (PDF)Fact sheet (PDF, two pages)
+
+## What changed in the rules, with dates.
+
+Short dated notes on the Kazakh and EAEU rules that govern storage and transport of medicines and medical devices. Each note links to the primary source.
+
+### Cold-chain monitoring for vaccines rolls out nationally
+
+Kazakhtelecom and the Ministry of Health start a phased rollout of remote temperature monitoring across more than 18,000 refrigeration and logistics units that store or move vaccines and immunobiologicals. For carriers this sets the expectation that a temperature record exists for every leg, not only at the warehouse.
+
+### Storage and transport rules: Order № ҚР ДСМ-19
+
+The Minister of Health approved the rules for storage and transport of medicines and medical devices. They define the temperature regimes, the documentation of each hand-over and the responsibilities of the carrier, and are the national text that a GDP audit in Kazakhstan refers to.
+
+### Good pharmaceutical practices, GDP included: Order № ҚР ДСМ-15
+
+One order sets the national standards for good manufacturing, distribution, pharmacy, laboratory and pharmacovigilance practice. The distribution chapter is what a wholesale licence holder is inspected against and what Kökzhol builds its procedures to.
+
+### EAEU good distribution practice: EEC Council Decision № 80
+
+The Eurasian Economic Commission adopted the common GDP rules for the five member states. They mirror the EU guideline in structure: quality system, personnel, premises and equipment, documentation, operations, complaints and recalls, outsourced activities, self-inspection and transport.
+
 ## Questions labs, pharmacies and sponsors ask first.
 
 
@@ -599,6 +745,30 @@ Every shipment comes with a delivery note, the chain-of-custody record with time
 ### What happens to unused or returned trial kits?
 
 Returned kits travel back to the hub on the next loop, sealed and logged like outbound goods. The hub counts them against the dispatch record and holds them in a marked return zone until the sponsor's monitor reconciles them. Documented destruction with a certificate is in preparation and follows the sponsor's procedure.
+
+### How is the price of a Kökzhol lane calculated?
+
+Ring deliveries are priced per box and temperature class, the backbone per box or pallet place, inbound plant lanes per pallet and dock slot, clinical shipments per kit. The price includes the qualified box, coolant, logger, hub receipt and the temperature report. Dry ice, ADR surcharges and waiting time are itemised separately.
+
+### What does «fixed price» mean on this page?
+
+The price per box and city is set for a calendar quarter and printed on the booking before the slot is confirmed; it does not change with fuel, season or load factor inside that quarter. Tariffs themselves are published at launch. Until then the enquiry form returns an indicative rate from the hub.
+
+### Is the cargo insured, and on what basis?
+
+Cargo insurance is offered per shipment on the declared value from launch; the owner states the value at booking and the premium appears as a separate line. The insurer, the policy number and the cover basis per shipment class are published on the certificates table once the policy is signed. Carrier liability under the contract applies in any case.
+
+### How does Kökzhol handle a product recall or a return?
+
+A recall notice from the owner freezes every affected shipment ID in the platform. The hubs move the boxes into the quarantine zone, which has its own temperature record, and report the count within one working day. Returns travel sealed with a logger on the next loop. Documented destruction with a certificate per batch is in preparation.
+
+### How long does a +2…+8 °C box hold its temperature?
+
+That depends on the box size, the season and the pre-conditioning of the coolant packs, so Kökzhol publishes one qualified hold time per box and season after the summer and winter qualification runs, not a single number. The booking system uses those values to accept a lane only when the hold time covers the planned transit with a reserve.
+
+### How can I track a Kökzhol shipment?
+
+Open the tracking page and enter the shipment ID printed on the label and the delivery note. From launch it shows the current leg, the vehicle position on the ring, the live logger reading and the next hand-over; after delivery it links the temperature report. Until launch the page accepts a demo ID that shows the layout.
 
 ## Request a lane. Become a partner.
 
