@@ -64,3 +64,10 @@ Pictograms: one per section head, per goods / GDP / segment / quality card, on t
 
 ## Customer-view preview card in D (from the preview session, commit 4de91aa)
 `build-d.py` calls `tools/add-preview.py` on `d/index.html` after every build (idempotent; anchor = the goods-receipt mock in #platform). The card loads `assets/kz-preview.css` / `kz-preview.js`; the modal iframe points at the platform demo (`window.KZ_PV_BASE`, default the GitHub Pages demo). The artifact copy of D does not carry the card.
+
+## Password gate for the preview (added 03.11.2026)
+The host is static, so the gate is client-side encryption: `gate.py` (workspace) replaces `/`, `/b/`, `/d/` and `/track/` with a login shell that carries the page AES-256-GCM-encrypted; the key comes from the password via PBKDF2-SHA256 (300 000 iterations) and is remembered in the browser's localStorage, so one login opens all four pages. The password lives only in the environment variable `KZ_GATE_PASSWORD` and is never written to a file or commit. Run the whole pipeline with
+
+    KZ_GATE_PASSWORD=... python build-all.py
+
+The gate is the last step (after `seo-check.py`); any single build script run afterwards writes an open page again, so re-run `gate.py` or `build-all.py`. Not encrypted: everything under `assets/` (PDFs, images), `llms*.txt`, `robots.txt`, `sitemap.xml`; they stay reachable by direct URL. The artifacts on claude.ai are private by their own sharing settings and carry no gate. At go-live run `build-all.py --production` without the variable.

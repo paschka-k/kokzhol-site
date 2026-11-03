@@ -25,6 +25,8 @@ for p, ct in PATHS:
         chk(f'200 {p or "/"} ({len(body)} B)', r.status == 200 and ct in got, got)
         if p in ('', 'b/', 'd/'):
             s = body.decode('utf-8', 'replace')
+            if 'id="ct"' in s and 'kz-gate' in s:
+                chk(f'  password gate present on {p or "/"} (content checks skipped)', 'name="robots" content="noindex' in s); continue
             chk(f'  canonical on {p or "/"}', 'rel="canonical" href="https://kokzhol.kz/"' in s)
             lds = re.findall(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)
             chk(f'  one JSON-LD block on {p or "/"}', len(lds) == 1)
